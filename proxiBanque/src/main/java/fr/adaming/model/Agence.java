@@ -13,7 +13,6 @@ public class Agence implements Serializable {
 	private String id_agence;
 	private Date date_creation;
 	
-	
 	/**
 	 * 
 	 */
