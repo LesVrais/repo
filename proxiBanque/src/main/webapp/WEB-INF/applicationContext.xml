@@ -31,9 +31,7 @@
 		<property name="dataSource" ref="dataSourceBean" />
 
 		<!-- Les classes avec les annotations jpa -->
-		<property value="fr.adaming.model.Client" name="annotatedClasses" />
-		<property value="fr.adaming.model.Conseiller" name="annotatedClasses" />
-		<property value="fr.adaming.model.Gerant" name="annotatedClasses" />
+		<property value="fr.adaming.model" name="annotatedClasses" />
 
 		<!-- proprietes hibernate -->
 		<property name="hibernateProperties">

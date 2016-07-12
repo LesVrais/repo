@@ -3,15 +3,31 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity(name="AgenceEntity")
+@Table(name="agences")
 public class Agence implements Serializable {
 
 	/**
 	 * 
 	 */
+	@Transient
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@Column(name="id_agence")
 	private String id_agence;
+	@Column(name="date_creation")
 	private Date date_creation;
+	
+	@OneToOne(mappedBy="agence")
+	private Gerant gerant;
 	
 	/**
 	 * 
