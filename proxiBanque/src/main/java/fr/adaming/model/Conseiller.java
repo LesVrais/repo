@@ -1,6 +1,6 @@
 package fr.adaming.model;
 
-public class Client extends Personne {
+public class Conseiller extends Personne {
 
 	/**
 	 * 
