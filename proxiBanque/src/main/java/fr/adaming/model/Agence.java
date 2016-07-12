@@ -34,14 +34,21 @@ public class Agence implements Serializable {
 	 */
 	public Agence() {
 	}
+
 	/**
 	 * @param id_agence
 	 * @param date_creation
+	 * @param gerant
 	 */
-	public Agence(String id_agence, Date date_creation) {
+	public Agence(String id_agence, Date date_creation, Gerant gerant) {
+		super();
 		this.id_agence = id_agence;
 		this.date_creation = date_creation;
+		this.gerant = gerant;
 	}
+
+
+
 	/**
 	 * @return the id_agence
 	 */
@@ -66,13 +73,28 @@ public class Agence implements Serializable {
 	public void setDate_creation(Date date_creation) {
 		this.date_creation = date_creation;
 	}
+	
+	/**
+	 * @return the gerant
+	 */
+	public Gerant getGerant() {
+		return gerant;
+	}
+	/**
+	 * @param gerant the gerant to set
+	 */
+	public void setGerant(Gerant gerant) {
+		this.gerant = gerant;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
 		return "Agence [id_agence=" + id_agence + ", date_creation="
-				+ date_creation + "]";
+				+ date_creation + ", gerant=" + gerant + "]";
 	}
+
+	
 	
 }

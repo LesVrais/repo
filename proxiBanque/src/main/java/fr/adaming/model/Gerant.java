@@ -34,12 +34,24 @@ public class Gerant extends Personne {
 	}
 
 	/**
-	 * @param id_gerant
+	 * @param agence
 	 */
-	public Gerant(int id_gerant) {
+	public Gerant(Agence agence) {
+		super();
+		this.agence = agence;
+	}
+
+	/**
+	 * @param id_gerant
+	 * @param agence
+	 */
+	public Gerant(int id_gerant, Agence agence) {
 		super();
 		this.id_gerant = id_gerant;
+		this.agence = agence;
 	}
+
+
 
 	/**
 	 * @return the id_gerant
@@ -55,12 +67,26 @@ public class Gerant extends Personne {
 		this.id_gerant = id_gerant;
 	}
 
+	/**
+	 * @return the agence
+	 */
+	public Agence getAgence() {
+		return agence;
+	}
+
+	/**
+	 * @param agence the agence to set
+	 */
+	public void setAgence(Agence agence) {
+		this.agence = agence;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		return "Gerant [id_gerant=" + id_gerant + "]";
+		return "Gerant [id_gerant=" + id_gerant + ", agence=" + agence + "]";
 	}
 
 }

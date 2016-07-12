@@ -1,12 +1,16 @@
 package fr.adaming.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
 
 @Entity(name="ClientEntity")
 @Table(name="clients")
@@ -32,39 +36,88 @@ public class Client extends Personne {
 	private long telephone;
 	@Column(name="carte")
 	private String carte;
+	
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compte")
+	private CompteCourant compteCourant;
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compte")
+	private CompteEpargne compteEpargne;
+	@javax.persistence.ManyToOne
+	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller")
+	private Conseiller conseiller;
 
 	/**
-	 * 
+	 * Constructeur vide
 	 */
 	public Client() {
 		super();
 	}
+	
 	/**
+	 * Constructeur sans id ni compte
 	 * @param adresse
 	 * @param cp
 	 * @param ville
 	 * @param telephone
 	 * @param carte
+	 * @param conseiller
 	 */
 	public Client(String adresse, int cp, String ville, long telephone,
-			String carte) {
+			String carte, Conseiller conseiller) {
 		super();
 		this.adresse = adresse;
 		this.cp = cp;
 		this.ville = ville;
 		this.telephone = telephone;
 		this.carte = carte;
+		this.conseiller = conseiller;
 	}
+
+
+
 	/**
+	 * Constructeur avec tous les paramètres sans id
+	 * @param adresse
+	 * @param cp
+	 * @param ville
+	 * @param telephone
+	 * @param carte
+	 * @param compteCourant
+	 * @param compteEpargne
+	 * @param conseiller
+	 */
+	public Client(String adresse, int cp, String ville, long telephone,
+			String carte, CompteCourant compteCourant,
+			CompteEpargne compteEpargne, Conseiller conseiller) {
+		super();
+		this.adresse = adresse;
+		this.cp = cp;
+		this.ville = ville;
+		this.telephone = telephone;
+		this.carte = carte;
+		this.compteCourant = compteCourant;
+		this.compteEpargne = compteEpargne;
+		this.conseiller = conseiller;
+	}
+
+
+
+	/**
+	 * Constructeur avec tous les paramètres
 	 * @param id_client
 	 * @param adresse
 	 * @param cp
 	 * @param ville
 	 * @param telephone
 	 * @param carte
+	 * @param compteCourant
+	 * @param compteEpargne
+	 * @param conseiller
 	 */
 	public Client(int id_client, String adresse, int cp, String ville,
-			long telephone, String carte) {
+			long telephone, String carte, CompteCourant compteCourant,
+			CompteEpargne compteEpargne, Conseiller conseiller) {
 		super();
 		this.id_client = id_client;
 		this.adresse = adresse;
@@ -72,7 +125,13 @@ public class Client extends Personne {
 		this.ville = ville;
 		this.telephone = telephone;
 		this.carte = carte;
+		this.compteCourant = compteCourant;
+		this.compteEpargne = compteEpargne;
+		this.conseiller = conseiller;
 	}
+
+
+
 	/**
 	 * @return the id_client
 	 */
@@ -145,6 +204,43 @@ public class Client extends Personne {
 	public void setCarte(String carte) {
 		this.carte = carte;
 	}
+
+	/**
+	 * @return the compteCourant
+	 */
+	public CompteCourant getCompteCourant() {
+		return compteCourant;
+	}
+	/**
+	 * @param compteCourant the compteCourant to set
+	 */
+	public void setCompteCourant(CompteCourant compteCourant) {
+		this.compteCourant = compteCourant;
+	}
+	/**
+	 * @return the compteEpargne
+	 */
+	public CompteEpargne getCompteEpargne() {
+		return compteEpargne;
+	}
+	/**
+	 * @param compteEpargne the compteEpargne to set
+	 */
+	public void setCompteEpargne(CompteEpargne compteEpargne) {
+		this.compteEpargne = compteEpargne;
+	}
+	/**
+	 * @return the conseiller
+	 */
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+	/**
+	 * @param conseiller the conseiller to set
+	 */
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -152,7 +248,9 @@ public class Client extends Personne {
 	public String toString() {
 		return "Client [id_client=" + id_client + ", adresse=" + adresse
 				+ ", cp=" + cp + ", ville=" + ville + ", telephone="
-				+ telephone + ", carte=" + carte + "]";
+				+ telephone + ", carte=" + carte + ", compteCourant="
+				+ compteCourant + ", compteEpargne=" + compteEpargne
+				+ ", conseiller=" + conseiller + "]";
 	}
 
 }
