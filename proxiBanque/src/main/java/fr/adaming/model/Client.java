@@ -63,9 +63,9 @@ public class Client extends Personne {
 	 * @param carte
 	 * @param conseiller
 	 */
-	public Client(String adresse, int cp, String ville, long telephone,
+	public Client(String nom, String prenom,String adresse, int cp, String ville, long telephone,
 			String carte, Conseiller conseiller) {
-		super();
+		super(nom,prenom);
 		this.adresse = adresse;
 		this.cp = cp;
 		this.ville = ville;
@@ -73,8 +73,6 @@ public class Client extends Personne {
 		this.carte = carte;
 		this.conseiller = conseiller;
 	}
-
-
 
 	/**
 	 * Constructeur avec tous les paramètres sans id
@@ -87,10 +85,10 @@ public class Client extends Personne {
 	 * @param compteEpargne
 	 * @param conseiller
 	 */
-	public Client(String adresse, int cp, String ville, long telephone,
+	public Client(String nom, String prenom, String adresse, int cp, String ville, long telephone,
 			String carte, CompteCourant compteCourant,
 			CompteEpargne compteEpargne, Conseiller conseiller) {
-		super();
+		super(nom,prenom);
 		this.adresse = adresse;
 		this.cp = cp;
 		this.ville = ville;
@@ -100,8 +98,6 @@ public class Client extends Personne {
 		this.compteEpargne = compteEpargne;
 		this.conseiller = conseiller;
 	}
-
-
 
 	/**
 	 * Constructeur avec tous les paramètres
@@ -115,10 +111,10 @@ public class Client extends Personne {
 	 * @param compteEpargne
 	 * @param conseiller
 	 */
-	public Client(int id_client, String adresse, int cp, String ville,
+	public Client(int id_client, String nom, String prenom, String adresse, int cp, String ville,
 			long telephone, String carte, CompteCourant compteCourant,
 			CompteEpargne compteEpargne, Conseiller conseiller) {
-		super();
+		super(nom,prenom);
 		this.id_client = id_client;
 		this.adresse = adresse;
 		this.cp = cp;
@@ -129,8 +125,6 @@ public class Client extends Personne {
 		this.compteEpargne = compteEpargne;
 		this.conseiller = conseiller;
 	}
-
-
 
 	/**
 	 * @return the id_client

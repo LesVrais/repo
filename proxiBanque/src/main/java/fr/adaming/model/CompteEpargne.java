@@ -1,6 +1,7 @@
 package fr.adaming.model;
 
-import javax.persistence.CascadeType;
+import java.util.Date;
+
 import javax.persistence.OneToOne;
 
 public class CompteEpargne extends Compte {
@@ -26,8 +27,8 @@ public class CompteEpargne extends Compte {
 	 * @param taux
 	 * @param client
 	 */
-	public CompteEpargne(double taux, Client client) {
-		super();
+	public CompteEpargne(String id_compte, double solde, Date date_creation, double taux, Client client) {
+		super(id_compte, solde, date_creation);
 		this.taux = taux;
 		this.client = client;
 	}

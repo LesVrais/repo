@@ -30,14 +30,13 @@ public class Gerant extends Personne {
 	 * 
 	 */
 	public Gerant() {
-		super();
 	}
 
 	/**
 	 * @param agence
 	 */
-	public Gerant(Agence agence) {
-		super();
+	public Gerant(String nom, String prenom,Agence agence) {
+		super(nom,prenom);
 		this.agence = agence;
 	}
 
@@ -45,8 +44,8 @@ public class Gerant extends Personne {
 	 * @param id_gerant
 	 * @param agence
 	 */
-	public Gerant(int id_gerant, Agence agence) {
-		super();
+	public Gerant(int id_gerant,String nom, String prenom, Agence agence) {
+		super(nom,prenom);
 		this.id_gerant = id_gerant;
 		this.agence = agence;
 	}

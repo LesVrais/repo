@@ -1,5 +1,7 @@
 package fr.adaming.model;
 
+import java.util.Date;
+
 import javax.persistence.OneToOne;
 
 public class CompteCourant extends Compte {
@@ -25,8 +27,8 @@ public class CompteCourant extends Compte {
 	 * @param decouvert
 	 * @param client
 	 */
-	public CompteCourant(long decouvert, Client client) {
-		super();
+	public CompteCourant(String id_compte, double solde, Date date_creation, long decouvert, Client client) {
+		super(id_compte,solde,date_creation);
 		this.decouvert = decouvert;
 		this.client = client;
 	}

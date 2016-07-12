@@ -2,6 +2,10 @@ package fr.adaming.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class Personne implements Serializable {
 	
 	/**
@@ -9,7 +13,9 @@ public abstract class Personne implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name="nom")
 	private String nom;
+	@Column(name="prenom")
 	private String prenom;
 
 	/**

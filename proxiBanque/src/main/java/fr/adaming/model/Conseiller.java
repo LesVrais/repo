@@ -27,8 +27,8 @@ public class Conseiller extends Personne {
 	/**
 	 * @param listClient
 	 */
-	public Conseiller(List<Client> listClient) {
-		super();
+	public Conseiller(String nom, String prenom, List<Client> listClient) {
+		super(nom,prenom);
 		this.listClient = listClient;
 	}
 
@@ -36,8 +36,8 @@ public class Conseiller extends Personne {
 	 * @param id_conseiller
 	 * @param listClient
 	 */
-	public Conseiller(int id_conseiller, List<Client> listClient) {
-		super();
+	public Conseiller(int id_conseiller, String nom, String prenom, List<Client> listClient) {
+		super(nom,prenom);
 		this.id_conseiller = id_conseiller;
 		this.listClient = listClient;
 	}
