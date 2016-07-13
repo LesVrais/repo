@@ -44,13 +44,11 @@ public class GerantDaoImpl implements IGerantDao {
 	@Override
 	public Conseiller getConseillerById(int id) {
 		return null;
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public void addConseiller(Conseiller c) {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.save(c);
 		session.close();
 	}
