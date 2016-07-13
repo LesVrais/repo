@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -36,6 +37,12 @@ public class Client extends Personne {
 	@Column(name="carte")
 	private String carte;
 	
+	@OneToOne
+	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compte")
+	private CompteCourant compteCourant;
+	@OneToOne
+	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compte")
+	private CompteEpargne compteEpargne;
 	@ManyToOne
 	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller")
 	private Conseiller conseiller;

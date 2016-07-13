@@ -3,17 +3,26 @@ package fr.adaming.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+
+@MappedSuperclass
 public abstract class Compte implements Serializable {
 	
 	/**
 	 * 
 	 */
-
+	@Transient
 	private static final long serialVersionUID = 1L;
 
-
+	@Id
+	@Column(name="id_compte")
 	private String id_compte;
+	@Column(name="solde")
 	private double solde;
+	@Column(name="date_creation")
 	private Date date_creation;
 	
 	/**

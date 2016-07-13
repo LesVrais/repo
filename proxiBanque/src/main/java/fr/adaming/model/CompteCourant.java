@@ -8,6 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="CompteCourantEntity")
+@Table(name="compte_courant")
 public class CompteCourant extends Compte {
 
 	/**
@@ -15,7 +16,9 @@ public class CompteCourant extends Compte {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name="decouvert")
 	private long decouvert=1000;
+	@OneToOne(mappedBy="compteCourant")
 	private Client client;
 
 	/**

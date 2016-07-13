@@ -8,6 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity(name="CompteEpargneEntity")
+@Table(name="compte_epargne")
 public class CompteEpargne extends Compte {
 
 	/**
@@ -15,7 +16,9 @@ public class CompteEpargne extends Compte {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name="taux")
 	private double taux=3;
+	@OneToOne(mappedBy="compteEpargne")
 	private Client client;
 	
 	/**
