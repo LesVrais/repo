@@ -36,7 +36,7 @@
 		<property name="dataSource" ref="dataSourceBean" />
 
 		<!-- Les classes avec les annotations jpa -->
-		<property value="fr.adaming.model" name="packagesToScan" />
+		<property name="packagesToScan"  value="fr.adaming.model"/>
 
 		<!-- proprietes hibernate -->
 		<property name="hibernateProperties">

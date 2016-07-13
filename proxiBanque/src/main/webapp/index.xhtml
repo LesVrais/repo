@@ -2,17 +2,28 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-<head>
-<title>Page index</title>
-</head>
-<body>
+<h:head>
+	<title>Page index</title>
+</h:head>
+<h:body>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" />
+	<br />
+	<br />
 	<h:form>
-		<p:commandButton value="Conseiller" actionListener="loginConseiller.xhtml" />
-		<p:commandButton value="Gerant" actionListener="loginGerant.xhtml" />
+		<p:commandButton action="loginConseiller.xhtml?faces-redirect=true" value="Conseiller"/>
+		<p:commandButton action="loginGerant.xhtml?faces-redirect=true" value="Gerant"/>
 	</h:form>
-</body>
+</h:body>
 </html>
