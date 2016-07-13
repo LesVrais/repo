@@ -75,7 +75,7 @@ public class Client extends Personne {
 	}
 
 	/**
-	 * Constructeur avec tous les paramètres sans id
+	 * Constructeur avec tous les paramï¿½tres sans id
 	 * @param adresse
 	 * @param cp
 	 * @param ville
@@ -100,7 +100,7 @@ public class Client extends Personne {
 	}
 
 	/**
-	 * Constructeur avec tous les paramètres
+	 * Constructeur avec tous les paramï¿½tres
 	 * @param id_client
 	 * @param adresse
 	 * @param cp
