@@ -2,17 +2,17 @@ package fr.adaming.dao;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Conseiller;
 
 @Repository
+@Transactional
 public class GerantDaoImpl implements IGerantDao {
 
 	@Autowired
@@ -32,7 +32,6 @@ public class GerantDaoImpl implements IGerantDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	@Transactional
 	@Override
 	public List<Conseiller> getAllConseiller() {
 		Session session = sessionFactory.getCurrentSession();
@@ -41,7 +40,7 @@ public class GerantDaoImpl implements IGerantDao {
 		List<Conseiller> liste = query.list();
 		return liste;
 	}
-	@Transactional
+
 	@Override
 	public Conseiller getConseillerById(int id) {
 		return null;
@@ -50,18 +49,17 @@ public class GerantDaoImpl implements IGerantDao {
 	}
 
 	@Override
-	@Transactional
 	public void addConseiller(Conseiller c) {
 		Session session = sessionFactory.openSession();
 		session.save(c);
 		session.close();
 	}
-	@Transactional
+
 	@Override
 	public void deleteConseiller(int id) {
 		
 	}
-	@Transactional
+
 	@Override
 	public void modifyConseiller(int id, String nom, String prenom) {
 		

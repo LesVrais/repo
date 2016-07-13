@@ -2,8 +2,12 @@ package fr.adaming.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity(name="CompteCourantEntity")
 public class CompteCourant extends Compte {
 
 	/**
@@ -12,8 +16,6 @@ public class CompteCourant extends Compte {
 	private static final long serialVersionUID = 1L;
 	
 	private long decouvert=1000;
-	
-	@OneToOne(mappedBy="compteCourant")
 	private Client client;
 
 	/**

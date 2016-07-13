@@ -1,13 +1,12 @@
 package fr.adaming.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -37,13 +36,7 @@ public class Client extends Personne {
 	@Column(name="carte")
 	private String carte;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compte")
-	private CompteCourant compteCourant;
-	@OneToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compte")
-	private CompteEpargne compteEpargne;
-	@javax.persistence.ManyToOne
+	@ManyToOne
 	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller")
 	private Conseiller conseiller;
 
@@ -75,31 +68,6 @@ public class Client extends Personne {
 	}
 
 	/**
-	 * Constructeur avec tous les param�tres sans id
-	 * @param adresse
-	 * @param cp
-	 * @param ville
-	 * @param telephone
-	 * @param carte
-	 * @param compteCourant
-	 * @param compteEpargne
-	 * @param conseiller
-	 */
-	public Client(String nom, String prenom, String adresse, int cp, String ville, long telephone,
-			String carte, CompteCourant compteCourant,
-			CompteEpargne compteEpargne, Conseiller conseiller) {
-		super(nom,prenom);
-		this.adresse = adresse;
-		this.cp = cp;
-		this.ville = ville;
-		this.telephone = telephone;
-		this.carte = carte;
-		this.compteCourant = compteCourant;
-		this.compteEpargne = compteEpargne;
-		this.conseiller = conseiller;
-	}
-
-	/**
 	 * Constructeur avec tous les param�tres
 	 * @param id_client
 	 * @param adresse
@@ -112,8 +80,7 @@ public class Client extends Personne {
 	 * @param conseiller
 	 */
 	public Client(int id_client, String nom, String prenom, String adresse, int cp, String ville,
-			long telephone, String carte, CompteCourant compteCourant,
-			CompteEpargne compteEpargne, Conseiller conseiller) {
+			long telephone, String carte, Conseiller conseiller) {
 		super(nom,prenom);
 		this.id_client = id_client;
 		this.adresse = adresse;
@@ -121,8 +88,6 @@ public class Client extends Personne {
 		this.ville = ville;
 		this.telephone = telephone;
 		this.carte = carte;
-		this.compteCourant = compteCourant;
-		this.compteEpargne = compteEpargne;
 		this.conseiller = conseiller;
 	}
 
@@ -200,30 +165,6 @@ public class Client extends Personne {
 	}
 
 	/**
-	 * @return the compteCourant
-	 */
-	public CompteCourant getCompteCourant() {
-		return compteCourant;
-	}
-	/**
-	 * @param compteCourant the compteCourant to set
-	 */
-	public void setCompteCourant(CompteCourant compteCourant) {
-		this.compteCourant = compteCourant;
-	}
-	/**
-	 * @return the compteEpargne
-	 */
-	public CompteEpargne getCompteEpargne() {
-		return compteEpargne;
-	}
-	/**
-	 * @param compteEpargne the compteEpargne to set
-	 */
-	public void setCompteEpargne(CompteEpargne compteEpargne) {
-		this.compteEpargne = compteEpargne;
-	}
-	/**
 	 * @return the conseiller
 	 */
 	public Conseiller getConseiller() {
@@ -243,7 +184,6 @@ public class Client extends Personne {
 		return "Client [id_client=" + id_client + ", adresse=" + adresse
 				+ ", cp=" + cp + ", ville=" + ville + ", telephone="
 				+ telephone + ", carte=" + carte + ", compteCourant="
-				+ compteCourant + ", compteEpargne=" + compteEpargne
 				+ ", conseiller=" + conseiller + "]";
 	}
 

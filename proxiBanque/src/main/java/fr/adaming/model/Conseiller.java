@@ -2,19 +2,26 @@ package fr.adaming.model;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
+@Entity(name="ConseillerEntity")
+@Table(name="conseillers")
 public class Conseiller extends Personne {
 
 	/**
 	 * 
 	 */
+	@Transient
 	private static final long serialVersionUID = 1L;
 	
+	@Id
 	private int id_conseiller;
 	
-	@OneToMany(mappedBy="conseiller", cascade=CascadeType.DETACH)
+	@OneToMany(mappedBy="conseiller")
 	private List<Client> listClient;
 
 	/**
