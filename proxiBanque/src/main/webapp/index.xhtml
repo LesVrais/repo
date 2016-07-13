@@ -3,29 +3,25 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>Page index</title>
+	<title>Proxi Banque</title>
 </h:head>
 <h:body>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
-	<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" />
-	<br />
-	<br />
-	<br />
-	<br />
-	<h:form>
-		<p:commandButton action="loginConseiller.xhtml?faces-redirect=true" value="Conseiller"/>
-		<p:commandButton action="loginGerant.xhtml?faces-redirect=true" value="Gerant"/>
-	</h:form>
+	<center>
+		<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <img
+			src="images/LogoProxiBanque.jpg" alt="logo proxi banque" /> <br />
+		<br /> <br /> <br />
+		<h:form>
+			<h:panelGrid columns="2" cellspacing="5">
+				<p:commandButton action="loginConseiller.xhtml?faces-redirect=true"
+					value="Conseiller" style="width:150px;color:blue" />
+				<p:commandButton action="loginGerant.xhtml?faces-redirect=true"
+					value="Gerant" style="width:150px;color:red"/>
+			</h:panelGrid>
+		</h:form>
+	</center>
 </h:body>
 </html>
