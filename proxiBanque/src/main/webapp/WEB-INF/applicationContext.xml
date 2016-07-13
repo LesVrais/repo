@@ -31,7 +31,7 @@
 		<property name="dataSource" ref="dataSourceBean" />
 
 		<!-- Les classes avec les annotations jpa -->
-		<property value="fr.adaming.model" name="annotatedClasses" />
+		<property value="fr.adaming.model.Conseiller" name="annotatedClasses" />
 
 		<!-- proprietes hibernate -->
 		<property name="hibernateProperties">
@@ -50,7 +50,7 @@
 		<property name="sessionFactory" ref="sessionFactoryBean" />
 	</bean>
 
-	<!-- detection des annotations de transaction: @Transactional -->
+<!-- 	 detection des annotations de transaction: @Transactional --> 
 	<tx:annotation-driven transaction-manager="transactionManagerBean" />
 
 </beans>
