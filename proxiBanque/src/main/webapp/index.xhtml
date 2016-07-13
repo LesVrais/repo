@@ -10,11 +10,9 @@
 <title>Page index</title>
 </head>
 <body>
-	<center>
-		<br />
-		<br />
-		<a href="loginConseiller.xhtml">Conseiller</a>
-		<a href="loginGerant.xhtml">Gérant</a>
-	</center>
+	<h:form>
+		<p:commandButton value="Conseiller" actionListener="loginConseiller.xhtml" />
+		<p:commandButton value="Gerant" actionListener="loginGerant.xhtml" />
+	</h:form>
 </body>
 </html>
