@@ -32,6 +32,17 @@ public class Gerant extends Personne {
 	public Gerant() {
 	}
 
+	
+	
+	/**
+	 * 
+	 */
+	public Gerant(String nom, String prenom) {
+		super(nom, prenom);
+	}
+
+
+
 	/**
 	 * @param agence
 	 */

@@ -25,6 +25,13 @@ public class Conseiller extends Personne {
 	}
 
 	/**
+	 *
+	 */
+	public Conseiller(String nom, String prenom) {
+		super(nom,prenom);
+	}
+	
+	/**
 	 * @param listClient
 	 */
 	public Conseiller(String nom, String prenom, List<Client> listClient) {
