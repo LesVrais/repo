@@ -2,7 +2,10 @@ package fr.adaming.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -19,6 +22,8 @@ public class Conseiller extends Personne {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_conseiller")
 	private int id_conseiller;
 	
 	@OneToMany(mappedBy="conseiller")

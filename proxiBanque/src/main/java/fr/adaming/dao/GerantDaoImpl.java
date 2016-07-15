@@ -17,7 +17,8 @@ public class GerantDaoImpl implements IGerantDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
+	//getter setter
 	/**
 	 * @return the sessionFactory
 	 */
@@ -32,35 +33,54 @@ public class GerantDaoImpl implements IGerantDao {
 		this.sessionFactory = sessionFactory;
 	}
 	
+	//Méthodes
 	@Override
 	public List<Conseiller> getAllConseiller() {
-		Session session = sessionFactory.getCurrentSession();
-		String reqHQL = "FROM GerantEntity g order by g.id asc";
+		Session session = sessionFactory.openSession();
+		String reqHQL = "from ConseillerEntity c order by c.id_conseiller asc";
 		Query query = session.createQuery(reqHQL);
 		List<Conseiller> liste = query.list();
+		session.close();
 		return liste;
 	}
 
 	@Override
 	public Conseiller getConseillerById(int id) {
-		return null;
+		Session session = sessionFactory.openSession();
+		String hqlReq = "from ConseillerEntity c where id_conseiller=:id";
+		Query query = session.createQuery(hqlReq);
+		query.setInteger("id", id);
+        Conseiller conseiller = (Conseiller) query.list();
+		session.close();
+		return conseiller;
 	}
 
 	@Override
 	public void addConseiller(Conseiller c) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.openSession();
 		session.save(c);
 		session.close();
 	}
 
 	@Override
-	public void deleteConseiller(int id) {
-		
+	public void deleteConseiller(Conseiller conseiller) {
+		Session session = sessionFactory.openSession();
+		String hqlReq = "delete from ConseillerEntity where id_conseiller=:id";
+		Query query = session.createQuery(hqlReq);
+		query.setInteger("id", conseiller.getId_conseiller());
+		query.executeUpdate();
+		session.close();
 	}
 
 	@Override
-	public void modifyConseiller(int id, String nom, String prenom) {
-		
+	public void modifyConseiller(Conseiller conseiller) {
+		Session session = sessionFactory.openSession();
+		String hqlReq = "update from ConseillerEntity set nom:=nom and prenom=:prenom where id_conseiller:=id";
+		Query query = session.createQuery(hqlReq);
+		query.setInteger("id", conseiller.getId_conseiller());
+		query.setParameter("nom", conseiller.getNom());
+		query.setParameter("prenom", conseiller.getPrenom());
+		session.close();
 	}
 
 }
