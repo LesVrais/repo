@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Conseiller;
 
-@Repository
+@Repository("gerantDao")
 @Transactional
 public class GerantDaoImpl implements IGerantDao {
 
@@ -47,10 +47,7 @@ public class GerantDaoImpl implements IGerantDao {
 	@Override
 	public Conseiller getConseillerById(int id) {
 		Session session = sessionFactory.openSession();
-		String hqlReq = "from ConseillerEntity c where id_conseiller=:id";
-		Query query = session.createQuery(hqlReq);
-		query.setInteger("id", id);
-        Conseiller conseiller = (Conseiller) query.list();
+		Conseiller conseiller = (Conseiller) session.get(Conseiller.class, id);
 		session.close();
 		return conseiller;
 	}
