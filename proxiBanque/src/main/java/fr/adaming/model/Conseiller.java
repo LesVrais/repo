@@ -62,6 +62,16 @@ public class Conseiller extends Personne {
 	}
 
 	/**
+	 * @param nom
+	 * @param prenom
+	 * @param id_conseiller
+	 */
+	public Conseiller(String nom, String prenom, int id_conseiller) {
+		super(nom, prenom);
+		this.id_conseiller = id_conseiller;
+	}
+
+	/**
 	 * @return the id_conseiller
 	 */
 	public int getId_conseiller() {
