@@ -23,6 +23,7 @@ public abstract class Personne implements Serializable {
 	 */
 	public Personne() {
 	}
+	
 	/**
 	 * @param nom
 	 * @param prenom
@@ -31,6 +32,15 @@ public abstract class Personne implements Serializable {
 		this.nom = nom;
 		this.prenom = prenom;
 	}
+	
+	/**
+	 * @param nom
+	 */
+	public Personne(String nom) {
+		super();
+		this.nom = nom;
+	}
+
 	/**
 	 * @return the nom
 	 */

@@ -62,7 +62,7 @@ public class GerantDaoImpl implements IGerantDao {
 	@Override
 	public void deleteConseiller(Conseiller conseiller) {
 		Session session = sessionFactory.openSession();
-		String hqlReq = "delete from ConseillerEntity where id_conseiller=:id";
+		String hqlReq = "delete from ConseillerEntity c where c.id_conseiller=:id";
 		Query query = session.createQuery(hqlReq);
 		query.setInteger("id", conseiller.getId_conseiller());
 		query.executeUpdate();
@@ -72,12 +72,25 @@ public class GerantDaoImpl implements IGerantDao {
 	@Override
 	public void modifyConseiller(Conseiller conseiller) {
 		Session session = sessionFactory.openSession();
-		String hqlReq = "update from ConseillerEntity set nom:=nom and prenom=:prenom where id_conseiller:=id";
+		String hqlReq = "update ConseillerEntity c set c.nom=:nom , c.prenom=:prenom where c.id_conseiller=:id";
 		Query query = session.createQuery(hqlReq);
 		query.setInteger("id", conseiller.getId_conseiller());
 		query.setParameter("nom", conseiller.getNom());
 		query.setParameter("prenom", conseiller.getPrenom());
+		query.executeUpdate();
 		session.close();
+	}
+
+	@Override
+	public long isExist(int id, String nom) {
+		Session session = sessionFactory.openSession();
+		String hqlReq = "select count(c.prenom) from ConseillerEntity c where c.id_conseiller=:id and c.nom=:nom";
+		Query query = session.createQuery(hqlReq);
+		query.setInteger("id", id);
+		query.setParameter("nom", nom);
+		long result = (long) query.uniqueResult();
+		return result;
+
 	}
 
 }

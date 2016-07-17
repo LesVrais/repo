@@ -72,6 +72,16 @@ public class Conseiller extends Personne {
 	}
 
 	/**
+	 * @param nom
+	 * @param prenom
+	 * @param id_conseiller
+	 */
+	public Conseiller(String nom, int id_conseiller) {
+		super(nom);
+		this.id_conseiller = id_conseiller;
+	}
+
+	/**
 	 * @return the id_conseiller
 	 */
 	public int getId_conseiller() {
@@ -104,8 +114,8 @@ public class Conseiller extends Personne {
 	 */
 	@Override
 	public String toString() {
-		return "Conseiller [id_conseiller=" + id_conseiller + ", listClient="
-				+ listClient + "]";
+		return "Conseiller [id_conseiller=" + id_conseiller + ", toString()="
+				+ super.toString() + "]";
 	}
 
 }
