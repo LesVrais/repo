@@ -56,13 +56,14 @@ public class ClassTest {
 //			System.out.println(c);
 //		}
 
-		// Test de la methode isExist
-		System.out.println("===========================================");
-		System.out.println("Liste des conseillers");
-		long a = gerantDao.isExist(8, "Clinton");
-		long b = gerantDao.isExist(825, "CeluiQuiNExistePas");
-		System.out.println("Retourne 1 normalement : " + a
-				         + "Retourne 0 normalement : " + b);
-	}
+		// Test de la methode isExist (CHECK)
+//		System.out.println("===========================================");
+//		System.out.println("Le gerant existe t'il ?");
+//		long a = gerantDao.isExist(1, "Sinapi");
+//		long b = gerantDao.isExist(825, "CeluiQuiNExistePas");
+//		System.out.println("Retourne 1 normalement : " + a
+//				         + ", retourne 0 normalement : " + b);
+	
+		}
 
 }

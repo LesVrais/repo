@@ -84,7 +84,7 @@ public class GerantDaoImpl implements IGerantDao {
 	@Override
 	public long isExist(int id, String nom) {
 		Session session = sessionFactory.openSession();
-		String hqlReq = "select count(c.prenom) from ConseillerEntity c where c.id_conseiller=:id and c.nom=:nom";
+		String hqlReq = "select count(c.prenom) from GerantEntity c where c.id_gerant=:id and c.nom=:nom";
 		Query query = session.createQuery(hqlReq);
 		query.setInteger("id", id);
 		query.setParameter("nom", nom);

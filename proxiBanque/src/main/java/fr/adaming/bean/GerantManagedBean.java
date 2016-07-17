@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import fr.adaming.model.Conseiller;
+import fr.adaming.model.Gerant;
 import fr.adaming.service.IGerantService;
 
 @ManagedBean(name="gerantManagedBean")
@@ -23,7 +24,8 @@ public class GerantManagedBean implements Serializable {
 	IGerantService gerantService;
 
 	private Conseiller conseiller;
-	
+	private Gerant gerant;
+
 	private List<Conseiller> listeConseiller;
 
 	/**
@@ -31,6 +33,7 @@ public class GerantManagedBean implements Serializable {
 	 */
 	public GerantManagedBean() {
 		this.conseiller = new Conseiller();
+		this.gerant = new Gerant();
 	}
 
 	//getter et setter
@@ -75,8 +78,22 @@ public class GerantManagedBean implements Serializable {
 	public void setListeConseiller(List<Conseiller> listeConseiller) {
 		this.listeConseiller = listeConseiller;
 	}
+	
+	/**
+	 * @return the gerant
+	 */
+	public Gerant getGerant() {
+		return gerant;
+	}
 
-	//methodes (sans parametre dans le MB
+	/**
+	 * @param gerant the gerant to set
+	 */
+	public void setGerant(Gerant gerant) {
+		this.gerant = gerant;
+	}
+
+	//methodes (sans parametre dans le MB)
 	public void ajouterConseillerMB() {
 		gerantService.addConseillerService(conseiller);
 	}
@@ -95,5 +112,16 @@ public class GerantManagedBean implements Serializable {
 	
 	public Conseiller getConseillerByIdMB(){
 		return gerantService.getConseillerByIdService(conseiller.getId_conseiller());
+	}
+	
+	public String getIsExistMB(){
+		long verif = gerantService.isExistService(gerant.getId_gerant(),gerant.getNom());
+		
+		if(verif==1){
+			this.listeConseiller = gerantService.getAllConseillerService();
+			return "succes";
+		}else{
+			return "echec";
+		}
 	}
 }

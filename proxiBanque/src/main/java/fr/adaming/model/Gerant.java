@@ -41,6 +41,17 @@ public class Gerant extends Personne {
 		super(nom, prenom);
 	}
 
+	
+
+	/**
+	 * @param nom
+	 * @param id_gerant
+	 */
+	public Gerant(String nom, int id_gerant) {
+		super(nom);
+		this.id_gerant = id_gerant;
+	}
+
 
 
 	/**

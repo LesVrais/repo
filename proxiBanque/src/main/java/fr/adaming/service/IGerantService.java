@@ -11,5 +11,6 @@ public interface IGerantService {
 	public void addConseillerService(Conseiller c);
 	public void deleteConseillerService(Conseiller c);
 	public void modifyConseillerService(Conseiller c);
+	public long isExistService(int id, String nom);
 	
 }
