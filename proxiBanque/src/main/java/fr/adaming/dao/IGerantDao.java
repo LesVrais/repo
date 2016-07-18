@@ -11,6 +11,6 @@ public interface IGerantDao {
 	public void addConseiller(Conseiller c);
 	public void deleteConseiller(Conseiller c);
 	public void modifyConseiller(Conseiller c);
-	public long isExist(int id, String nom);
+//	public long isExist(int id, String nom);
 
 }

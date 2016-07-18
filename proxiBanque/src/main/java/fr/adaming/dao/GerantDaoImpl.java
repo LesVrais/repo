@@ -81,16 +81,16 @@ public class GerantDaoImpl implements IGerantDao {
 		session.close();
 	}
 
-	@Override
-	public long isExist(int id, String nom) {
-		Session session = sessionFactory.openSession();
-		String hqlReq = "select count(c.prenom) from GerantEntity c where c.id_gerant=:id and c.nom=:nom";
-		Query query = session.createQuery(hqlReq);
-		query.setInteger("id", id);
-		query.setParameter("nom", nom);
-		long result = (long) query.uniqueResult();
-		return result;
-
-	}
+//	@Override
+//	public long isExist(int id, String nom) {
+//		Session session = sessionFactory.openSession();
+//		String hqlReq = "select count(c.prenom) from GerantEntity c where c.id_gerant=:id and c.nom=:nom";
+//		Query query = session.createQuery(hqlReq);
+//		query.setInteger("id", id);
+//		query.setParameter("nom", nom);
+//		long result = (long) query.uniqueResult();
+//		return result;
+//
+//	}
 
 }

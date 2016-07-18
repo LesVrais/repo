@@ -114,14 +114,14 @@ public class GerantManagedBean implements Serializable {
 		return gerantService.getConseillerByIdService(conseiller.getId_conseiller());
 	}
 	
-	public String getIsExistMB(){
-		long verif = gerantService.isExistService(gerant.getId_gerant(),gerant.getNom());
-		
-		if(verif==1){
-			this.listeConseiller = gerantService.getAllConseillerService();
-			return "succes";
-		}else{
-			return "echec";
-		}
-	}
+//	public String isExistMB(){
+//		long verif = gerantService.isExistService(gerant.getId_gerant(),gerant.getNom());
+//		
+//		if(verif==1){
+//			this.listeConseiller = gerantService.getAllConseillerService();
+//			return "succes";
+//		}else{
+//			return "echec";
+//		}
+//	}
 }

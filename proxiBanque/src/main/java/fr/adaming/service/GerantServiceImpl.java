@@ -49,9 +49,9 @@ public class GerantServiceImpl implements IGerantService{
 		gerantDao.modifyConseiller(c);
 	}
 
-	@Override
-	public long isExistService(int id, String nom) {
-		return gerantDao.isExist(id, nom);
-	}
+//	@Override
+//	public long isExistService(int id, String nom) {
+//		return gerantDao.isExist(id, nom);
+//	}
 
 }

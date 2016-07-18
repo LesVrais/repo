@@ -10,6 +10,32 @@
 	<title>Proxi Banque</title>
 </h:head>
 <h:body>
+	<center>
+		<h1>Liste des conseillers de l'agence</h1>
+		
+		<p:dataTable var="conseiller" value="#{gerantManagedBean.allConseillerMB}">
+		<p:column headerText="Id">
+			<h:outputText value="#{gerantManagedBean.conseiller.id_conseiller}"/>
+		</p:column>
 
+		<p:column headerText="Nom">
+			<h:outputText value="#{gerantManagedBean.conseiller.nom}" />
+		</p:column>
+
+		<p:column headerText="Prenom">
+			<h:outputText value="#{gerantManagedBean.conseiller.prenom}" />
+		</p:column>
+
+		<p:column style="width: 45px">
+			<h:form>
+				<p:commandButton action="#{empMB.supprimer}" icon="ui-icon-trash" title="supprimer"
+				process="@this" update="@all">
+					<f:setPropertyActionListener value="#{employe}" target="#{empMB.employe}"/>
+				</p:commandButton>
+			</h:form>
+		</p:column>
+		
+	</p:dataTable>
+	</center>
 </h:body>
 </html>

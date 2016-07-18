@@ -9,28 +9,28 @@
 		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
 	</application>
 	
-	<navigation-rule>
-		<from-view-id>/loginConseiller.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>succes</from-outcome>
-			<to-view-id>/pageConseiller.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>echec</from-outcome>
-			<to-view-id>/echecAuthentification.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+<!-- 	<navigation-rule> -->
+<!-- 		<from-view-id>/loginConseiller.xhtml</from-view-id> -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>succes</from-outcome> -->
+<!-- 			<to-view-id>/pageConseiller.xhtml</to-view-id> -->
+<!-- 		</navigation-case> -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>echec</from-outcome> -->
+<!-- 			<to-view-id>/echecAuthentification.xhtml</to-view-id> -->
+<!-- 		</navigation-case> -->
+<!-- 	</navigation-rule> -->
 	
-	<navigation-rule>
-		<from-view-id>/loginGerant.xhtml</from-view-id>
-		<navigation-case>
-			<from-outcome>succes</from-outcome>
-			<to-view-id>/pageGerant.xhtml</to-view-id>
-		</navigation-case>
-		<navigation-case>
-			<from-outcome>echec</from-outcome>
-			<to-view-id>/echecAuthentification.xhtml</to-view-id>
-		</navigation-case>
-	</navigation-rule>
+<!-- 	<navigation-rule> -->
+<!-- 		<from-view-id>/loginGerant.xhtml</from-view-id> -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>succes</from-outcome> -->
+<!-- 			<to-view-id>/pageGerant.xhtml</to-view-id> -->
+<!-- 		</navigation-case> -->
+<!-- 		<navigation-case> -->
+<!-- 			<from-outcome>echec</from-outcome> -->
+<!-- 			<to-view-id>/echecAuthentification.xhtml</to-view-id> -->
+<!-- 		</navigation-case> -->
+<!-- 	</navigation-rule> -->
 
 </faces-config>
