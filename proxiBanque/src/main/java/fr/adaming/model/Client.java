@@ -1,7 +1,9 @@
 package fr.adaming.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -37,14 +39,14 @@ public class Client extends Personne {
 	@Column(name="carte")
 	private String carte;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compte")
 	private CompteCourant compteCourant;
-	@OneToOne
+	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
 	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compte")
 	private CompteEpargne compteEpargne;
 	@ManyToOne
-	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller")
+	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller", nullable=false)
 	private Conseiller conseiller;
 
 	/**

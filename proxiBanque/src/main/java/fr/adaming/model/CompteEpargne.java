@@ -32,6 +32,31 @@ public class CompteEpargne extends Compte {
 	 * @param taux
 	 * @param client
 	 */
+	public CompteEpargne(String id_compte) {
+		super(id_compte);
+	}
+	
+	/**
+	 * @param taux
+	 * @param client
+	 */
+	public CompteEpargne(String id_compte, double solde, Date date_creation) {
+		super(id_compte, solde, date_creation);
+	}
+	
+	/**
+	 * @param taux
+	 * @param client
+	 */
+	public CompteEpargne(String id_compte, double solde, Date date_creation, double taux) {
+		super(id_compte, solde, date_creation);
+		this.taux = taux;
+	}
+	
+	/**
+	 * @param taux
+	 * @param client
+	 */
 	public CompteEpargne(String id_compte, double solde, Date date_creation, double taux, Client client) {
 		super(id_compte, solde, date_creation);
 		this.taux = taux;

@@ -3,6 +3,9 @@ package fr.adaming.dao;
 import java.util.List;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.Compte;
+import fr.adaming.model.CompteCourant;
+import fr.adaming.model.CompteEpargne;
 
 public interface IConseillerDao {
 	
@@ -11,5 +14,12 @@ public interface IConseillerDao {
 	public void addClient(Client cl);
 	public void deleteClient(Client cl);
 	public void modifyClient(Client cl);
+	
+	public void addCompteCourant(Compte compte);
+	public void addCompteEpargne(Compte compte);
+	public void deleteCompteCourant(Compte compte);
+	public void deleteCompteEpargne(Compte compte);
+	public List<CompteCourant> getAllCompteCourant();
+	public List<CompteEpargne> getAllCompteEpargne();
 
 }

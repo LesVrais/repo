@@ -30,6 +30,16 @@ public abstract class Compte implements Serializable {
 	 */
 	public Compte() {
 	}
+	
+	/**
+	 * @param id_compte
+	 * @param solde
+	 * @param date_creation
+	 */
+	public Compte(String id_compte) {
+		this.id_compte = id_compte;
+	}
+	
 	/**
 	 * @param id_compte
 	 * @param solde

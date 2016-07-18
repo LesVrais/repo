@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.Compte;
+import fr.adaming.model.CompteCourant;
+import fr.adaming.model.CompteEpargne;
 import fr.adaming.model.Conseiller;
 
 @Repository("conseillerDao")
@@ -86,6 +89,66 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		query.setParameter("id_compteCourant", cl.getCompteCourant().getId_compte());
 		query.setParameter("id_compteEpargne", cl.getCompteEpargne().getId_compte());
 		
+		query.executeUpdate();
+	}
+	
+	// Genere un numero de compte alaetoire
+	
+	public static String genererNumeroCompte() {
+        String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"; 
+        StringBuffer pass = new StringBuffer();
+        for(int x=0;x<5;x++)   {
+           int i = (int)Math.floor(Math.random() * (chars.length() -1));
+           pass.append(chars.charAt(i));
+        }
+        return pass.toString();
+	}
+	
+	@Override
+	public List<CompteCourant> getAllCompteCourant() {
+		Session session = sessionFactory.getCurrentSession();
+		String reqHQL = "from CompteCourantEntity cc order by cc.id_compte asc";
+		Query query = session.createQuery(reqHQL);
+		List<CompteCourant> liste = query.list();
+		return liste;
+	}
+
+	@Override
+	public List<CompteEpargne> getAllCompteEpargne() {
+		Session session = sessionFactory.getCurrentSession();
+		String reqHQL = "from CompteEpargneEntity ce order by ce.id_compte asc";
+		Query query = session.createQuery(reqHQL);
+		List<CompteEpargne> liste = query.list();
+		return liste;
+	}
+
+	@Override
+	public void addCompteCourant(Compte compte) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(compte);
+	}
+
+	@Override
+	public void addCompteEpargne(Compte compte) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(compte);
+	}
+
+	@Override
+	public void deleteCompteCourant(Compte compte) {
+		Session session = sessionFactory.getCurrentSession();
+		String hqlReq = "delete from CompteCourantEntity cc where cc.id_compte=:id";
+		Query query = session.createQuery(hqlReq);
+		query.setString("id", compte.getId_compte());
+		query.executeUpdate();
+	}
+
+	@Override
+	public void deleteCompteEpargne(Compte compte) {
+		Session session = sessionFactory.getCurrentSession();
+		String hqlReq = "delete from CompteEpargneEntity ce where ce.id_compte=:id";
+		Query query = session.createQuery(hqlReq);
+		query.setString("id", compte.getId_compte());
 		query.executeUpdate();
 	}
 

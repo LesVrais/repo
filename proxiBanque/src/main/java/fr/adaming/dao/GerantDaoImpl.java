@@ -52,7 +52,7 @@ public class GerantDaoImpl implements IGerantDao {
 
 	@Override
 	public void addConseiller(Conseiller c) {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.save(c);
 	}
 

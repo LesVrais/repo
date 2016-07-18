@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Conseiller extends Personne {
 	@Column(name="id_conseiller")
 	private int id_conseiller;
 	
-	@OneToMany(mappedBy="conseiller")
+	@OneToMany(mappedBy="conseiller", fetch=FetchType.EAGER)
 	private List<Client> listClient;
 
 	/**

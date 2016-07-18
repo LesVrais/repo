@@ -93,9 +93,9 @@ public class GerantManagedBean implements Serializable {
 		this.gerant = gerant;
 	}
 
-	//methodes (sans parametre dans le MB)
-	public void ajouterConseillerMB() {
-		gerantService.addConseillerService(conseiller);
+
+	public void getAjouterConseillerMB() {
+		gerantService.addConseillerService(this.conseiller);
 	}
 	
 	public void supprimerConseillerMB(){

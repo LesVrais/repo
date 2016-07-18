@@ -2,6 +2,7 @@ package fr.adaming.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -27,6 +28,30 @@ public class CompteCourant extends Compte {
 	public CompteCourant() {
 		super();
 	}
+
+	/**
+	 * @param decouvert
+	 */
+	public CompteCourant(String id_compte) {
+		super(id_compte);
+	}
+	
+	/**
+	 * @param decouvert
+	 */
+	public CompteCourant(String id_compte, double solde, Date date_creation) {
+		super(id_compte,solde,date_creation);
+	}
+	
+	/**
+	 * @param decouvert
+	 */
+	public CompteCourant(String id_compte, double solde, Date date_creation, long decouvert) {
+		super(id_compte,solde,date_creation);
+		this.decouvert = decouvert;
+	}
+
+
 
 	/**
 	 * @param decouvert
