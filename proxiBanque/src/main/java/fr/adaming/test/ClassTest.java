@@ -29,11 +29,13 @@ public class ClassTest {
 //		conseillerDao.addClient(c1);
 //		conseillerDao.addClient(c2);
 
+		Conseiller c = new Conseiller();
+		c.setId_conseiller(1);
 		
 		// Test de la methode modifier conseiller (CHECK)
 		System.out.println("===========================================");
 		System.out.println("Modifier conseiller");
-		Client c5 = new Client(2,"Louis", "Jean","La Fleche",72200,(long) 06789412.0);
+		Client c5 = new Client(2, "Jackson", "Mickaela", "rue des enfants", 69069, (long) 0689457812.0);
 		conseillerDao.modifyClient(c5);
 		
 //		// Test de la methode supprimer conseiller (CHECK)
