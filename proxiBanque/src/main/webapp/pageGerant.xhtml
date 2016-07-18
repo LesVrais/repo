@@ -11,26 +11,28 @@
 </h:head>
 <h:body>
 	<center>
-		<h1>Liste des conseillers de l'agence</h1>
+	<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" />
+	<br /> <br /> <br />
+		<h4 align="left" style="font: bold;">Liste des conseillers de l'agence</h4>
 		
 		<p:dataTable var="conseiller" value="#{gerantManagedBean.allConseillerMB}">
 		<p:column headerText="Id">
-			<h:outputText value="#{gerantManagedBean.conseiller.id_conseiller}"/>
+			<h:outputText value="#{conseiller.id_conseiller}"/>
 		</p:column>
 
 		<p:column headerText="Nom">
-			<h:outputText value="#{gerantManagedBean.conseiller.nom}" />
+			<h:outputText value="#{conseiller.nom}" />
 		</p:column>
 
 		<p:column headerText="Prenom">
-			<h:outputText value="#{gerantManagedBean.conseiller.prenom}" />
+			<h:outputText value="#{conseiller.prenom}" />
 		</p:column>
 
 		<p:column style="width: 45px">
 			<h:form>
-				<p:commandButton action="#{empMB.supprimer}" icon="ui-icon-trash" title="supprimer"
+				<p:commandButton action="#{gerantManagedBean.supprimerConseillerMB}" icon="ui-icon-trash" title="supprimer"
 				process="@this" update="@all">
-					<f:setPropertyActionListener value="#{employe}" target="#{empMB.employe}"/>
+					<f:setPropertyActionListener value="#{conseiller}" target="#{gerantManagedBean.conseiller}"/>
 				</p:commandButton>
 			</h:form>
 		</p:column>

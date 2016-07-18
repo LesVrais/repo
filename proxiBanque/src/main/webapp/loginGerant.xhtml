@@ -11,18 +11,21 @@
 </h:head>
 <h:body>
 	<center>
-		<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <img
+		<br /> <br /> <br /> <br /> <br /> <br /> <img
 			src="images/LogoProxiBanque.jpg" alt="logo proxi banque" /> <br />
 		<br /> <br /> <br />
 		<h:form>
 			<p:panel id="panel" header="Connexion Gérant">
-				<h:panelGrid columns="2" cellpadding="5">
+				<h:panelGrid columns="3" cellpadding="5">
 					<h:outputLabel for="id" value="Id :" style="font-weight:bold" />
-					<p:inputText id="id" value="#{gerantManagedBean.gerant.id_gerant}" required="true" />
+					<p:inputText id="id" value="#{gerantManagedBean.gerant.id_gerant}"
+						required="true" requiredMessage="Veuillez entrer votre id." />
 					<h:outputLabel for="nom" value="Nom :" style="font-weight:bold" />
-					<p:inputText id="nom" value="#{gerantManagedBean.gerant.nom}" required="true" />
-					<p:commandButton value="Connexion" actionListener="#{gerantManagedBean.}"
-						icon="ui-icon-check" />
+					<p:inputText id="nom" value="#{gerantManagedBean.gerant.nom}"
+						required="true" requiredMessage="Veuillez entrer votre nom." />
+					<p:watermark for="nom" value="Entrer votre nom ..." />
+					<p:commandButton value="Connexion"
+						action="pageGerant.xhtml?faces-redirect=true" icon="ui-icon-check" />
 				</h:panelGrid>
 			</p:panel>
 		</h:form>
