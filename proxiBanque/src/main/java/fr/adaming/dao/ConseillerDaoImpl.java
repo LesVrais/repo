@@ -69,7 +69,8 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hqlReq = "update ClientEntity c set c.nom=:nom , c.prenom=:prenom , c.adresse=:adresse"
 				+ ", c.carte=:carte , c.cp=:cp , c.telephone=:telephone , c.ville=:ville"
-				+ " where c.id_client=:id";
+				+ " , c.conseiller.id_conseiller=:id_conseiller , c.compteCourant.id_compte=:id_compteCourant"
+				+ " , c.compteEpargne.id_compte=:id_compteEpargne where c.id_client=:id";
 		
 		Query query = session.createQuery(hqlReq);
 		query.setInteger("id", cl.getId_client());
@@ -81,9 +82,9 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		query.setParameter("cp", cl.getCp());
 		query.setParameter("telephone", cl.getTelephone());
 		query.setParameter("ville", cl.getVille());
-//		query.setParameter("id_conseiller", cl.getConseiller().getId_conseiller());
-//		query.setParameter("id_compteCourant", cl.getCompteCourant().getId_compte());
-//		query.setParameter("id_compteEpargne", cl.getCompteEpargne().getId_compte());
+		query.setParameter("id_conseiller", cl.getConseiller().getId_conseiller());
+		query.setParameter("id_compteCourant", cl.getCompteCourant().getId_compte());
+		query.setParameter("id_compteEpargne", cl.getCompteEpargne().getId_compte());
 		
 		query.executeUpdate();
 	}

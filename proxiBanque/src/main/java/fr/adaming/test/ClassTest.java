@@ -9,6 +9,9 @@ import fr.adaming.dao.GerantDaoImpl;
 import fr.adaming.dao.IConseillerDao;
 import fr.adaming.dao.IGerantDao;
 import fr.adaming.model.Client;
+import fr.adaming.model.Compte;
+import fr.adaming.model.CompteCourant;
+import fr.adaming.model.CompteEpargne;
 import fr.adaming.model.Conseiller;
 
 public class ClassTest {
@@ -30,12 +33,17 @@ public class ClassTest {
 //		conseillerDao.addClient(c2);
 
 		Conseiller c = new Conseiller();
+		CompteEpargne ce = new CompteEpargne();
+		CompteCourant cc = new CompteCourant();
 		c.setId_conseiller(1);
+		ce.setId_compte("2");
+		cc.setId_compte("1");
 		
 		// Test de la methode modifier conseiller (CHECK)
 		System.out.println("===========================================");
 		System.out.println("Modifier conseiller");
-		Client c5 = new Client(2, "Jackson", "Mickaela", "rue des enfants", 69069, (long) 0689457812.0);
+
+		Client c5 = new Client(2, "Jackson", "Mickael", "rue des enfants", 69069, "Floride", (long) 0689457812.0, "mastercard", cc, ce, c);
 		conseillerDao.modifyClient(c5);
 		
 //		// Test de la methode supprimer conseiller (CHECK)

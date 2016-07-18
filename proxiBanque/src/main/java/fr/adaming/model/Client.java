@@ -107,6 +107,32 @@ public class Client extends Personne {
 	}
 
 	/**
+	 * @param id_client
+	 * @param adresse
+	 * @param cp
+	 * @param ville
+	 * @param telephone
+	 * @param carte
+	 * @param compteCourant
+	 * @param compteEpargne
+	 * @param conseiller
+	 */
+	public Client(int id_client, String nom, String prenom, String adresse, int cp, String ville,
+			long telephone, String carte, CompteCourant compteCourant,
+			CompteEpargne compteEpargne, Conseiller conseiller) {
+		super(nom,prenom);
+		this.id_client = id_client;
+		this.adresse = adresse;
+		this.cp = cp;
+		this.ville = ville;
+		this.telephone = telephone;
+		this.carte = carte;
+		this.compteCourant = compteCourant;
+		this.compteEpargne = compteEpargne;
+		this.conseiller = conseiller;
+	}
+
+	/**
 	 * @return the id_client
 	 */
 	public int getId_client() {
