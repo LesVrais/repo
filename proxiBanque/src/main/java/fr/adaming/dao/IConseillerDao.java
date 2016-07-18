@@ -21,7 +21,6 @@ public interface IConseillerDao {
 	public void deleteCompteEpargne(Compte compte);
 	public List<CompteCourant> getAllCompteCourant();
 	public List<CompteEpargne> getAllCompteEpargne();
-	public Compte getCompteById(String id);
 	
 	public void virement(Compte compte1, Compte compte2, double somme);
 

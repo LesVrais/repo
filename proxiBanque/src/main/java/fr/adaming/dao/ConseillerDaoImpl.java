@@ -141,13 +141,6 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		query.setString("id", compte.getId_compte());
 		query.executeUpdate();
 	}
-	
-	@Override
-	public Compte getCompteById(String id) {
-		Session session = sessionFactory.getCurrentSession();
-		Compte compte = (Compte) session.get(Compte.class, id);
-		return compte;
-	}
 
 	@Override
 	public void deleteCompteEpargne(Compte compte) {
@@ -165,7 +158,5 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		double soldeDebit = compteDebit.getSolde();
 		soldeDebit -= somme;
 	}
-
-
 
 }

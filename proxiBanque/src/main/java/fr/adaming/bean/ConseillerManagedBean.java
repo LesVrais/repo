@@ -1,6 +1,7 @@
 package fr.adaming.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -8,6 +9,8 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import fr.adaming.model.Client;
+import fr.adaming.model.Compte;
+import fr.adaming.model.CompteEpargne;
 import fr.adaming.model.Conseiller;
 import fr.adaming.service.IConseillerService;
 

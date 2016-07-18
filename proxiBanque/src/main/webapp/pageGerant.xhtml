@@ -10,8 +10,10 @@
 	<title>Proxi Banque</title>
 </h:head>
 <h:body>
+
 	<center>
-		<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" />
+		<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" /><br/>
+		<h1>Bonjour Mr.#{gerantManagedBean.gerant.nom}, bienvenue sur le reseau de la banque des vrais.</h1>
 	</center>
 	<br />
 	<br />
@@ -25,7 +27,11 @@
 					<p:dataTable var="conseiller"
 						value="#{gerantManagedBean.allConseillerMB}">
 						<p:column headerText="Id">
-							<h:outputText value="#{conseiller.id_conseiller}" />
+							<p:commandButton value="#{conseiller.id_conseiller}"
+								icon="ui-icon-info" action="consulterConseiller.xhtml?faces-redirect=true">
+								<f:setPropertyActionListener value="#{conseiller}"
+									target="#{gerantManagedBean.conseiller}" />
+							</p:commandButton>
 						</p:column>
 
 						<p:column headerText="Nom">
@@ -124,7 +130,11 @@
 					<p:dataTable var="client"
 						value="#{conseillerManagedBean.allClientMB}">
 						<p:column headerText="Id">
-							<h:outputText value="#{client.id_client}" />
+							<p:commandButton value="#{client.id_client}"
+								icon="ui-icon-info" action="consulterClient.xhtml?faces-redirect=true">
+								<f:setPropertyActionListener value="#{client}"
+									target="#{conseillerManagedBean.client}" />
+							</p:commandButton>
 						</p:column>
 
 						<p:column headerText="Nom">
@@ -191,7 +201,8 @@
 						<h:outputLabel for="tel1" value="Telephone du client :"
 							style="font-weight:bold" />
 						<p:inputText id="tel1"
-							value="#{conseillerManagedBean.client.telephone}" required="true"
+							value="#{conseillerManagedBean.client.telephone}" type="tel"
+							required="true"
 							requiredMessage="Veuillez entrer un numéro de telephone." />
 						<p:watermark for="tel1" value="Entrer un numéro de telephone ..." />
 						<h:outputLabel for="ville1" value="Ville du client :"
@@ -207,7 +218,7 @@
 					</h:panelGrid>
 				</h:form>
 			</p:tab>
-			
+
 			<p:tab title="Modifier un client">
 				<h:form>
 					<h:panelGrid columns="3" cellpadding="5">
@@ -241,7 +252,8 @@
 						<h:outputLabel for="tel2" value="Nouveau numéro de telephone :"
 							style="font-weight:bold" />
 						<p:inputText id="tel2"
-							value="#{conseillerManagedBean.client.telephone}" required="true"
+							value="#{conseillerManagedBean.client.telephone}" type="tel"
+							required="true"
 							requiredMessage="Veuillez entrer un numéro de telephone." />
 						<p:watermark for="tel2" value="Entrer un numéro de telephone ..." />
 						<h:outputLabel for="ville2" value="Nouvelle ville :"
@@ -263,8 +275,7 @@
 						<h:outputLabel for="id3" value="Id du client :"
 							style="font-weight:bold" />
 						<p:inputText id="id3"
-							value="#{conseillerManagedBean.client.id_client}"
-							required="true" />
+							value="#{conseillerManagedBean.client.id_client}" required="true" />
 						<p:commandButton value="Supprimer client" update="@all"
 							icon="ui-icon-check"
 							action="#{conseillerManagedBean.supprimerClientMB()}">

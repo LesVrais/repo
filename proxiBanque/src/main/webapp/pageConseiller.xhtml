@@ -10,9 +10,12 @@
 	<title>Proxi Banque</title>
 </h:head>
 <h:body>
+	<center>
+		<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" /><br/>
+		<h1>Bonjour Mr.#{gerantManagedBean.gerant.nom}, bienvenue sur le reseau de la banque des vrais.</h1>
+	</center>
 	<br />
 	<br />
-
 	<p:panel id="panel" header="Gestion des clients">
 		<p:accordionPanel multiple="true">
 			<p:tab title="Liste des clients">
@@ -20,7 +23,11 @@
 					<p:dataTable var="client"
 						value="#{conseillerManagedBean.allClientMB}">
 						<p:column headerText="Id">
-							<h:outputText value="#{client.id_client}" />
+							<p:commandButton value="#{client.id_client}" icon="ui-icon-info"
+								action="consulterClient.xhtml?faces-redirect=true">
+								<f:setPropertyActionListener value="#{client}"
+									target="#{conseillerManagedBean.client}" />
+							</p:commandButton>
 						</p:column>
 
 						<p:column headerText="Nom">
@@ -82,7 +89,8 @@
 						<h:outputLabel for="cp1" value="Code postal du client :"
 							style="font-weight:bold" />
 						<p:inputText id="cp1" value="#{conseillerManagedBean.client.cp}"
-							required="true" requiredMessage="Veuillez entrer un code postal." />
+							type="tel" required="true"
+							requiredMessage="Veuillez entrer un code postal." />
 						<p:watermark for="cp1" value="Entrer un code postal ..." />
 						<h:outputLabel for="tel1" value="Telephone du client :"
 							style="font-weight:bold" />
@@ -136,7 +144,8 @@
 						<h:outputLabel for="tel2" value="Nouveau numéro de telephone :"
 							style="font-weight:bold" />
 						<p:inputText id="tel2"
-							value="#{conseillerManagedBean.client.telephone}" required="true"
+							value="#{conseillerManagedBean.client.telephone}" type="tel"
+							required="true"
 							requiredMessage="Veuillez entrer un numéro de telephone." />
 						<p:watermark for="tel2" value="Entrer un numéro de telephone ..." />
 						<h:outputLabel for="ville2" value="Nouvelle ville :"
@@ -158,8 +167,7 @@
 						<h:outputLabel for="id3" value="Id du client :"
 							style="font-weight:bold" />
 						<p:inputText id="id3"
-							value="#{conseillerManagedBean.client.id_client}"
-							required="true" />
+							value="#{conseillerManagedBean.client.id_client}" required="true" />
 						<p:commandButton value="Supprimer client" update="@all"
 							icon="ui-icon-check"
 							action="#{conseillerManagedBean.supprimerClientMB()}">
