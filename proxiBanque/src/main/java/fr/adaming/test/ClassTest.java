@@ -25,13 +25,13 @@ public class ClassTest {
 		
 		IConseillerDao conseillerDao = (IConseillerDao) cxt.getBean("conseillerDao");
 		
-		Client c1 = new Client(1,"Lecouty", "Alexandre","Nantes",44000,(long) 0689457812.0);
-		Client c2 = new Client(2,"Guillou", "Florian","Paris",57981,(long) 0756897561.0);
+		Client c1 = new Client("Lecouty", "Alexandre","adresse", 44000, "Nantes", (long) 0689457812.0);
+		Client c2 = new Client("Guillou", "Florian","adressssssse2", 75000,"Paris",(long) 0756897561.0);
 
-		Date date = Calendar.getInstance().getTime();
-		
-		System.out.println(date);
-		
+//		Date date = Calendar.getInstance().getTime();
+//		
+//		System.out.println(date);
+//		
 //		CompteCourant cc = new CompteCourant("A2Z7A", 15000,date , 250);
 //		CompteCourant cc1 = new CompteCourant("ED8SA", 75000,date);
 //		
@@ -44,10 +44,10 @@ public class ClassTest {
 //		conseillerDao.addCompteEpargne(ce);
 //		conseillerDao.addCompteEpargne(ce2);
 		
-		CompteEpargne ce3 = new CompteEpargne("1");
-		CompteCourant cc3 = new CompteCourant("1");
-		
-		conseillerDao.deleteCompteCourant(cc3);
+//		CompteEpargne ce3 = new CompteEpargne("1");
+//		CompteCourant cc3 = new CompteCourant("1");
+//		
+//		conseillerDao.deleteCompteCourant(cc3);
 //		conseillerDao.deleteCompteEpargne(ce3);
 		
 //		// Test de la methode ajouter conseiller (CHECK)
@@ -57,17 +57,17 @@ public class ClassTest {
 //		conseillerDao.addClient(c2);
 
 //		Conseiller c = new Conseiller();
-//		CompteEpargne ce = new CompteEpargne();
+//		CompteEpargne ce1 = new CompteEpargne();
 //		CompteCourant cc = new CompteCourant();
-//		c.setId_conseiller(1);
-//		ce.setId_compte("2");
-//		cc.setId_compte("1");
+//		c.setId_conseiller(3);
+//		ce1.setId_compte("A9E8D");
+//		cc.setId_compte("A2Z7A");
 		
 //		// Test de la methode modifier conseiller (CHECK)
 //		System.out.println("===========================================");
 //		System.out.println("Modifier conseiller");
 //
-//		Client c5 = new Client(2, "Jackson", "Mickael", "rue des enfants", 69069, "Floride", (long) 0689457812.0, "mastercard", cc, ce, c);
+//		Client c5 = new Client(2,"Jackson", "Mickael", "rue des enfants", 69069, "Floride", (long) 0689457812.0,"mastercard", cc,ce,c);
 //		conseillerDao.modifyClient(c5);
 		
 //		// Test de la methode supprimer conseiller (CHECK)

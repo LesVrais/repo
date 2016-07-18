@@ -63,7 +63,7 @@
 						<p:watermark for="prenom1" value="Entrer un prenom ..." />
 						<p:commandButton value="Ajouter conseiller" update="@all"
 							icon="ui-icon-check"
-							action="#{gerantManagedBean.ajouterConseillerMB()}">
+							action="#{gerantManagedBean.ajouterConseillerMB}">
 						</p:commandButton>
 					</h:panelGrid>
 				</h:form>
@@ -202,11 +202,12 @@
 						<p:watermark for="ville1" value="Entrer une ville ..." />
 						<p:commandButton value="Ajouter client" update="@all"
 							icon="ui-icon-check"
-							action="#{conseillerManagedBean.ajouterClientMB()}">
+							action="#{conseillerManagedBean.ajouterClientMB}">
 						</p:commandButton>
 					</h:panelGrid>
 				</h:form>
 			</p:tab>
+			
 			<p:tab title="Modifier un client">
 				<h:form>
 					<h:panelGrid columns="3" cellpadding="5">

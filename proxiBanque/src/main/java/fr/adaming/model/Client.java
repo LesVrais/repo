@@ -39,14 +39,14 @@ public class Client extends Personne {
 	@Column(name="carte")
 	private String carte;
 	
-	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compte")
 	private CompteCourant compteCourant;
-	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compte")
 	private CompteEpargne compteEpargne;
 	@ManyToOne
-	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller", nullable=false)
+	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller")
 	private Conseiller conseiller;
 
 	/**
@@ -74,6 +74,20 @@ public class Client extends Personne {
 		this.telephone = telephone;
 		this.carte = carte;
 		this.conseiller = conseiller;
+	}
+	
+	/**
+	 * @param adresse
+	 * @param cp
+	 * @param ville
+	 * @param telephone
+	 */
+	public Client(String nom, String prenom, String adresse, int cp, String ville, long telephone) {
+		super(nom,prenom);
+		this.adresse = adresse;
+		this.cp = cp;
+		this.ville = ville;
+		this.telephone = telephone;
 	}
 
 	/**

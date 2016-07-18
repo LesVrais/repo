@@ -13,7 +13,6 @@ import fr.adaming.model.Client;
 import fr.adaming.model.Compte;
 import fr.adaming.model.CompteCourant;
 import fr.adaming.model.CompteEpargne;
-import fr.adaming.model.Conseiller;
 
 @Repository("conseillerDao")
 @Transactional
