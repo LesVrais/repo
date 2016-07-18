@@ -7,6 +7,9 @@ import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.IConseillerDao;
 import fr.adaming.model.Client;
+import fr.adaming.model.Compte;
+import fr.adaming.model.CompteCourant;
+import fr.adaming.model.CompteEpargne;
 
 @Service("conseillerServiceBean")
 public class ConseillerServiceImpl implements IConseillerService {
@@ -50,6 +53,30 @@ public class ConseillerServiceImpl implements IConseillerService {
 	@Override
 	public void modifyClientService(Client c) {
 		conseillerDao.modifyClient(c);
+	}
+	@Override
+	public void addCompteCourant(Compte compte) {
+		conseillerDao.addCompteCourant(compte);
+	}
+	@Override
+	public void addCompteEpargne(Compte compte) {
+		conseillerDao.addCompteEpargne(compte);
+	}
+	@Override
+	public void deleteCompteCourant(Compte compte) {
+		conseillerDao.deleteCompteCourant(compte);
+	}
+	@Override
+	public void deleteCompteEpargne(Compte compte) {
+		conseillerDao.deleteCompteEpargne(compte);
+	}
+	@Override
+	public List<CompteCourant> getAllCompteCourant() {
+		return conseillerDao.getAllCompteCourant();
+	}
+	@Override
+	public List<CompteEpargne> getAllCompteEpargne() {
+		return conseillerDao.getAllCompteEpargne();
 	}
 
 }
