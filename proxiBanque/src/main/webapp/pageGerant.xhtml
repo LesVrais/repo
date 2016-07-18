@@ -15,8 +15,10 @@
 	</center>
 	<br />
 	<br />
-	<br />
-	<p:panel id="panel" header="Gestion des conseillers">
+
+	<!-- Conseillers -->
+
+	<p:panel id="panel2" header="Gestion des conseillers">
 		<p:accordionPanel multiple="true">
 			<p:tab title="Liste des conseillers">
 				<h:form>
@@ -51,15 +53,15 @@
 						<h:outputLabel for="nom1" value="Nom du conseiller :"
 							style="font-weight:bold" />
 						<p:inputText id="nom1" value="#{gerantManagedBean.conseiller.nom}"
-							required="true" requiredMessage="Veuillez un nom." />
+							required="true" requiredMessage="Veuillez entrer un nom." />
 						<p:watermark for="nom1" value="Entrer un nom ..." />
 						<h:outputLabel for="prenom1" value="Prenom du conseiller :"
 							style="font-weight:bold" />
 						<p:inputText id="prenom1"
 							value="#{gerantManagedBean.conseiller.prenom}" required="true"
-							requiredMessage="Veuillez un prenom." />
+							requiredMessage="Veuillez entrer un prenom." />
 						<p:watermark for="prenom1" value="Entrer un prenom ..." />
-						<p:commandButton value="Ajouter Conseiller" update="@all"
+						<p:commandButton value="Ajouter conseiller" update="@all"
 							icon="ui-icon-check"
 							action="#{gerantManagedBean.ajouterConseillerMB()}">
 						</p:commandButton>
@@ -86,7 +88,7 @@
 							value="#{gerantManagedBean.conseiller.prenom}" required="true"
 							requiredMessage="Veuillez entrer un prenom." />
 						<p:watermark for="prenom2" value="Entrer un prenom ..." />
-						<p:commandButton value="Modifier Conseiller" update="@all"
+						<p:commandButton value="Modifier conseiller" update="@all"
 							icon="ui-icon-check"
 							action="#{gerantManagedBean.modifierConseillerMB()}">
 						</p:commandButton>
@@ -104,6 +106,167 @@
 						<p:commandButton value="Supprimer conseiller" update="@all"
 							icon="ui-icon-check"
 							action="#{gerantManagedBean.supprimerConseillerMB()}">
+						</p:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</p:tab>
+		</p:accordionPanel>
+	</p:panel>
+
+	<!-- Clients -->
+	<br />
+	<br />
+
+	<p:panel id="panel" header="Gestion des clients">
+		<p:accordionPanel multiple="true">
+			<p:tab title="Liste des clients">
+				<h:form>
+					<p:dataTable var="client"
+						value="#{conseillerManagedBean.allClientMB}">
+						<p:column headerText="Id">
+							<h:outputText value="#{client.id_client}" />
+						</p:column>
+
+						<p:column headerText="Nom">
+							<h:outputText value="#{client.nom}" />
+						</p:column>
+
+						<p:column headerText="Prenom">
+							<h:outputText value="#{client.prenom}" />
+						</p:column>
+
+						<p:column headerText="Adresse">
+							<h:outputText value="#{client.adresse}" />
+						</p:column>
+
+						<p:column headerText="Code postal">
+							<h:outputText value="#{client.cp}" />
+						</p:column>
+
+						<p:column headerText="Telephone">
+							<h:outputText value="#{client.telephone}" />
+						</p:column>
+
+						<p:column headerText="Ville">
+							<h:outputText value="#{client.ville}" />
+						</p:column>
+
+						<p:column style="width: 45px">
+							<p:commandButton
+								action="#{conseillerManagedBean.supprimerClientMB}"
+								icon="ui-icon-trash" title="supprimer" process="@this"
+								update="@all">
+								<f:setPropertyActionListener value="#{client}"
+									target="#{conseillerManagedBean.client}" />
+							</p:commandButton>
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</p:tab>
+			<p:tab title="Ajouter un client">
+				<h:form>
+					<h:panelGrid columns="3" cellpadding="5">
+						<h:outputLabel for="nom1" value="Nom du client :"
+							style="font-weight:bold" />
+						<p:inputText id="nom1" value="#{conseillerManagedBean.client.nom}"
+							required="true" requiredMessage="Veuillez entrer un nom." />
+						<p:watermark for="nom1" value="Entrer un nom ..." />
+						<h:outputLabel for="prenom1" value="Prenom du client :"
+							style="font-weight:bold" />
+						<p:inputText id="prenom1"
+							value="#{conseillerManagedBean.client.prenom}" required="true"
+							requiredMessage="Veuillez entrer un prenom." />
+						<p:watermark for="prenom1" value="Entrer un prenom ..." />
+						<h:outputLabel for="adresse1" value="Adresse du client :"
+							style="font-weight:bold" />
+						<p:inputText id="adresse1"
+							value="#{conseillerManagedBean.client.adresse}" required="true"
+							requiredMessage="Veuillez entrer une adresse." />
+						<p:watermark for="adresse1" value="Entrer une adresse ..." />
+						<h:outputLabel for="cp1" value="Code postal du client :"
+							style="font-weight:bold" />
+						<p:inputText id="cp1" value="#{conseillerManagedBean.client.cp}"
+							required="true" requiredMessage="Veuillez entrer un code postal." />
+						<p:watermark for="cp1" value="Entrer un code postal ..." />
+						<h:outputLabel for="tel1" value="Telephone du client :"
+							style="font-weight:bold" />
+						<p:inputText id="tel1"
+							value="#{conseillerManagedBean.client.telephone}" required="true"
+							requiredMessage="Veuillez entrer un numéro de telephone." />
+						<p:watermark for="tel1" value="Entrer un numéro de telephone ..." />
+						<h:outputLabel for="ville1" value="Ville du client :"
+							style="font-weight:bold" />
+						<p:inputText id="ville1"
+							value="#{conseillerManagedBean.client.ville}" required="true"
+							requiredMessage="Veuillez entrer une ville." />
+						<p:watermark for="ville1" value="Entrer une ville ..." />
+						<p:commandButton value="Ajouter client" update="@all"
+							icon="ui-icon-check"
+							action="#{conseillerManagedBean.ajouterClientMB()}">
+						</p:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</p:tab>
+			<p:tab title="Modifier un client">
+				<h:form>
+					<h:panelGrid columns="3" cellpadding="5">
+						<h:outputLabel for="id2" value="Id du client à modifier:"
+							style="font-weight:bold" />
+						<p:inputText id="id2"
+							value="#{conseillerManagedBean.client.id_client}" required="true" />
+						<p:watermark for="id2" value="Entrer un id ..." />
+						<h:outputLabel for="nom2" value="Nouveau nom :"
+							style="font-weight:bold" />
+						<p:inputText id="nom2" value="#{conseillerManagedBean.client.nom}"
+							required="true" requiredMessage="Veuillez entrer un nom." />
+						<p:watermark for="nom2" value="Entrer un nom ..." />
+						<h:outputLabel for="prenom2" value="Nouveau prenom :"
+							style="font-weight:bold" />
+						<p:inputText id="prenom2"
+							value="#{conseillerManagedBean.client.prenom}" required="true"
+							requiredMessage="Veuillez entrer un prenom." />
+						<p:watermark for="prenom2" value="Entrer un prenom ..." />
+						<h:outputLabel for="adresse2" value="Nouvelle adresse :"
+							style="font-weight:bold" />
+						<p:inputText id="adresse2"
+							value="#{conseillerManagedBean.client.adresse}" required="true"
+							requiredMessage="Veuillez entrer une adresse." />
+						<p:watermark for="adresse2" value="Entrer une adresse ..." />
+						<h:outputLabel for="cp2" value="Nouveau code postal :"
+							style="font-weight:bold" />
+						<p:inputText id="cp2" value="#{conseillerManagedBean.client.cp}"
+							required="true" requiredMessage="Veuillez entrer un code postal." />
+						<p:watermark for="cp2" value="Entrer un code postal ..." />
+						<h:outputLabel for="tel2" value="Nouveau numéro de telephone :"
+							style="font-weight:bold" />
+						<p:inputText id="tel2"
+							value="#{conseillerManagedBean.client.telephone}" required="true"
+							requiredMessage="Veuillez entrer un numéro de telephone." />
+						<p:watermark for="tel2" value="Entrer un numéro de telephone ..." />
+						<h:outputLabel for="ville2" value="Nouvelle ville :"
+							style="font-weight:bold" />
+						<p:inputText id="ville2"
+							value="#{conseillerManagedBean.client.ville}" required="true"
+							requiredMessage="Veuillez entrer une ville." />
+						<p:watermark for="ville2" value="Entrer une ville ..." />
+						<p:commandButton value="Modifier client" update="@all"
+							icon="ui-icon-check"
+							action="#{conseillerManagedBean.modifierClientrMB()}">
+						</p:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</p:tab>
+			<p:tab title="Supprimer un client">
+				<h:form>
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="id3" value="Id du client :"
+							style="font-weight:bold" />
+						<p:inputText id="id3"
+							value="#{conseillerManagedBean.client.id_client}"
+							required="true" />
+						<p:commandButton value="Supprimer client" update="@all"
+							icon="ui-icon-check"
+							action="#{conseillerManagedBean.supprimerClientMB()}">
 						</p:commandButton>
 					</h:panelGrid>
 				</h:form>
