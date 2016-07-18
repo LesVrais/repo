@@ -16,10 +16,10 @@
 	<br />
 	<br />
 	<br />
-	<h:form>
-		<p:panel id="panel" header="Gestion des conseillers">
-			<p:accordionPanel multiple="true">
-				<p:tab title="Liste des conseillers">
+	<p:panel id="panel" header="Gestion des conseillers">
+		<p:accordionPanel multiple="true">
+			<p:tab title="Liste des conseillers">
+				<h:form>
 					<p:dataTable var="conseiller"
 						value="#{gerantManagedBean.allConseillerMB}">
 						<p:column headerText="Id">
@@ -33,88 +33,83 @@
 						<p:column headerText="Prenom">
 							<h:outputText value="#{conseiller.prenom}" />
 						</p:column>
-
 						<p:column style="width: 45px">
-							<h:form>
-								<p:commandButton
-									action="#{gerantManagedBean.supprimerConseillerMB}"
-									icon="ui-icon-trash" title="supprimer" process="@this"
-									update="@all">
-									<f:setPropertyActionListener value="#{conseiller}"
-										target="#{gerantManagedBean.conseiller}" />
-								</p:commandButton>
-							</h:form>
+							<p:commandButton
+								action="#{gerantManagedBean.supprimerConseillerMB}"
+								icon="ui-icon-trash" title="supprimer" process="@this"
+								update="@all">
+								<f:setPropertyActionListener value="#{conseiller}"
+									target="#{gerantManagedBean.conseiller}" />
+							</p:commandButton>
 						</p:column>
 					</p:dataTable>
-				</p:tab>
-				<p:tab title="Ajouter un conseiller">
-					<h:form>
-						<h:panelGrid columns="3" cellpadding="5">
-							<h:outputLabel for="nom1" value="Nom du conseiller :"
-								style="font-weight:bold" />
-							<p:inputText id="nom1"
-								value="#{gerantManagedBean.conseiller.nom}" required="true"
-								requiredMessage="Veuillez un nom." />
-							<p:watermark for="nom1" value="Entrer un nom ..." />
-							<h:outputLabel for="prenom1" value="Prenom du conseiller :"
-								style="font-weight:bold" />
-							<p:inputText id="prenom1"
-								value="#{gerantManagedBean.conseiller.prenom}" required="true"
-								requiredMessage="Veuillez un prenom." />
-							<p:watermark for="prenom1" value="Entrer un prenom ..." />
-							<p:commandButton value="Ajouter Conseiller" update="@all"
-								icon="ui-icon-check"
-								action="#{gerantManagedBean.ajouterConseillerMB()}">
-							</p:commandButton>
-						</h:panelGrid>
-					</h:form>
-				</p:tab>
-				<p:tab title="Modifier un conseiller">
-					<h:form>
-						<h:panelGrid columns="3" cellpadding="5">
-							<h:outputLabel for="id2" value="Id du conseiller à modifier:"
-								style="font-weight:bold" />
-							<p:inputText id="id2"
-								value="#{gerantManagedBean.conseiller.id_conseiller}"
-								required="true" />
-							<p:watermark for="id2" value="Entrer un id ..." />
-							<h:outputLabel for="nom2" value="Nouveau nom :"
-								style="font-weight:bold" />
-							<p:inputText id="nom2"
-								value="#{gerantManagedBean.conseiller.nom}" required="true"
-								requiredMessage="Veuillez entrer un nom." />
-							<p:watermark for="nom2" value="Entrer un nom ..." />
-							<h:outputLabel for="prenom2" value="Nouveau prenom :"
-								style="font-weight:bold" />
-							<p:inputText id="prenom2"
-								value="#{gerantManagedBean.conseiller.prenom}" required="true"
-								requiredMessage="Veuillez entrer un prenom." />
-							<p:watermark for="prenom2" value="Entrer un prenom ..." />
-							<p:commandButton value="Modifier Conseiller" update="@all"
-								icon="ui-icon-check"
-								action="#{gerantManagedBean.modifierConseillerMB()}">
-							</p:commandButton>
-						</h:panelGrid>
-					</h:form>
-				</p:tab>
-				<p:tab title="Supprimer un conseiller">
-					<h:form>
-						<h:panelGrid columns="2" cellpadding="5">
-							<h:outputLabel for="id3" value="Id du conseiller :"
-								style="font-weight:bold" />
-							<p:inputText id="id3"
-								value="#{gerantManagedBean.conseiller.id_conseiller}"
-								required="true" />
-							<p:commandButton value="Supprimer conseiller" update="@all"
-								icon="ui-icon-check"
-								action="#{gerantManagedBean.supprimerConseillerMB()}">
-							</p:commandButton>
-						</h:panelGrid>
-					</h:form>
-				</p:tab>
-			</p:accordionPanel>
-		</p:panel>
-	</h:form>
+				</h:form>
+			</p:tab>
+			<p:tab title="Ajouter un conseiller">
+				<h:form>
+					<h:panelGrid columns="3" cellpadding="5">
+						<h:outputLabel for="nom1" value="Nom du conseiller :"
+							style="font-weight:bold" />
+						<p:inputText id="nom1" value="#{gerantManagedBean.conseiller.nom}"
+							required="true" requiredMessage="Veuillez un nom." />
+						<p:watermark for="nom1" value="Entrer un nom ..." />
+						<h:outputLabel for="prenom1" value="Prenom du conseiller :"
+							style="font-weight:bold" />
+						<p:inputText id="prenom1"
+							value="#{gerantManagedBean.conseiller.prenom}" required="true"
+							requiredMessage="Veuillez un prenom." />
+						<p:watermark for="prenom1" value="Entrer un prenom ..." />
+						<p:commandButton value="Ajouter Conseiller" update="@all"
+							icon="ui-icon-check"
+							action="#{gerantManagedBean.ajouterConseillerMB()}">
+						</p:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</p:tab>
+			<p:tab title="Modifier un conseiller">
+				<h:form>
+					<h:panelGrid columns="3" cellpadding="5">
+						<h:outputLabel for="id2" value="Id du conseiller à modifier:"
+							style="font-weight:bold" />
+						<p:inputText id="id2"
+							value="#{gerantManagedBean.conseiller.id_conseiller}"
+							required="true" />
+						<p:watermark for="id2" value="Entrer un id ..." />
+						<h:outputLabel for="nom2" value="Nouveau nom :"
+							style="font-weight:bold" />
+						<p:inputText id="nom2" value="#{gerantManagedBean.conseiller.nom}"
+							required="true" requiredMessage="Veuillez entrer un nom." />
+						<p:watermark for="nom2" value="Entrer un nom ..." />
+						<h:outputLabel for="prenom2" value="Nouveau prenom :"
+							style="font-weight:bold" />
+						<p:inputText id="prenom2"
+							value="#{gerantManagedBean.conseiller.prenom}" required="true"
+							requiredMessage="Veuillez entrer un prenom." />
+						<p:watermark for="prenom2" value="Entrer un prenom ..." />
+						<p:commandButton value="Modifier Conseiller" update="@all"
+							icon="ui-icon-check"
+							action="#{gerantManagedBean.modifierConseillerMB()}">
+						</p:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</p:tab>
+			<p:tab title="Supprimer un conseiller">
+				<h:form>
+					<h:panelGrid columns="2" cellpadding="5">
+						<h:outputLabel for="id3" value="Id du conseiller :"
+							style="font-weight:bold" />
+						<p:inputText id="id3"
+							value="#{gerantManagedBean.conseiller.id_conseiller}"
+							required="true" />
+						<p:commandButton value="Supprimer conseiller" update="@all"
+							icon="ui-icon-check"
+							action="#{gerantManagedBean.supprimerConseillerMB()}">
+						</p:commandButton>
+					</h:panelGrid>
+				</h:form>
+			</p:tab>
+		</p:accordionPanel>
+	</p:panel>
 </h:body>
 </html>
 
