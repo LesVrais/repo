@@ -98,6 +98,14 @@ public class Client extends Personne {
 		this.conseiller = conseiller;
 	}
 
+	public Client (int id_client, String nom, String prenom, String ville, int cp ,long telephone) {
+		super(nom,prenom);
+		this.id_client = id_client;
+		this.cp = cp;
+		this.ville = ville;
+		this.telephone = telephone;
+	}
+
 	/**
 	 * @return the id_client
 	 */
@@ -183,6 +191,34 @@ public class Client extends Personne {
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
+	/**
+	 * @return the compteCourant
+	 */
+	public CompteCourant getCompteCourant() {
+		return compteCourant;
+	}
+
+	/**
+	 * @param compteCourant the compteCourant to set
+	 */
+	public void setCompteCourant(CompteCourant compteCourant) {
+		this.compteCourant = compteCourant;
+	}
+
+	/**
+	 * @return the compteEpargne
+	 */
+	public CompteEpargne getCompteEpargne() {
+		return compteEpargne;
+	}
+
+	/**
+	 * @param compteEpargne the compteEpargne to set
+	 */
+	public void setCompteEpargne(CompteEpargne compteEpargne) {
+		this.compteEpargne = compteEpargne;
+	}
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */

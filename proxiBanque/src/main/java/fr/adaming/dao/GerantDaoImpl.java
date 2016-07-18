@@ -36,19 +36,17 @@ public class GerantDaoImpl implements IGerantDao {
 	//Méthodes
 	@Override
 	public List<Conseiller> getAllConseiller() {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		String reqHQL = "from ConseillerEntity c order by c.id_conseiller asc";
 		Query query = session.createQuery(reqHQL);
 		List<Conseiller> liste = query.list();
-		session.close();
 		return liste;
 	}
 
 	@Override
 	public Conseiller getConseillerById(int id) {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		Conseiller conseiller = (Conseiller) session.get(Conseiller.class, id);
-		session.close();
 		return conseiller;
 	}
 
@@ -56,41 +54,37 @@ public class GerantDaoImpl implements IGerantDao {
 	public void addConseiller(Conseiller c) {
 		Session session = sessionFactory.openSession();
 		session.save(c);
-		session.close();
 	}
 
 	@Override
 	public void deleteConseiller(Conseiller conseiller) {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		String hqlReq = "delete from ConseillerEntity c where c.id_conseiller=:id";
 		Query query = session.createQuery(hqlReq);
 		query.setInteger("id", conseiller.getId_conseiller());
 		query.executeUpdate();
-		session.close();
 	}
 
 	@Override
 	public void modifyConseiller(Conseiller conseiller) {
-		Session session = sessionFactory.openSession();
+		Session session = sessionFactory.getCurrentSession();
 		String hqlReq = "update ConseillerEntity c set c.nom=:nom , c.prenom=:prenom where c.id_conseiller=:id";
 		Query query = session.createQuery(hqlReq);
 		query.setInteger("id", conseiller.getId_conseiller());
 		query.setParameter("nom", conseiller.getNom());
 		query.setParameter("prenom", conseiller.getPrenom());
 		query.executeUpdate();
-		session.close();
 	}
 
 //	@Override
 //	public long isExist(int id, String nom) {
-//		Session session = sessionFactory.openSession();
+//		Session session = sessionFactory.getCurrentSession();
 //		String hqlReq = "select count(c.prenom) from GerantEntity c where c.id_gerant=:id and c.nom=:nom";
 //		Query query = session.createQuery(hqlReq);
 //		query.setInteger("id", id);
 //		query.setParameter("nom", nom);
 //		long result = (long) query.uniqueResult();
 //		return result;
-//
 //	}
 
 }

@@ -6,7 +6,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import fr.adaming.dao.GerantDaoImpl;
+import fr.adaming.dao.IConseillerDao;
 import fr.adaming.dao.IGerantDao;
+import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 
 public class ClassTest {
@@ -16,43 +18,40 @@ public class ClassTest {
 		ApplicationContext cxt = 
 				new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml");
 		
-		IGerantDao gerantDao = (IGerantDao) cxt.getBean("gerantDao");
+		IConseillerDao conseillerDao = (IConseillerDao) cxt.getBean("conseillerDao");
 		
-		Conseiller c1 = new Conseiller("Lecouty", "Alexandre",1);
-		Conseiller c2 = new Conseiller("Guillou", "Florian");
-		Conseiller c3 = new Conseiller("Trump", "Donald");
-		Conseiller c4 = new Conseiller("Clinton", "Hillary");
+		Client c1 = new Client(1,"Lecouty", "Alexandre","Nantes",44000,(long) 0689457812.0);
+		Client c2 = new Client(2,"Guillou", "Florian","Paris",57981,(long) 0756897561.0);
 
 //		// Test de la methode ajouter conseiller (CHECK)
 //		System.out.println("===========================================");
 //		System.out.println("Ajout de conseillers");
-//		gerantDao.addConseiller(c1);
-//		gerantDao.addConseiller(c2);
-//		gerantDao.addConseiller(c3);
-//		gerantDao.addConseiller(c4);
+//		conseillerDao.addClient(c1);
+//		conseillerDao.addClient(c2);
+
 		
 		// Test de la methode modifier conseiller (CHECK)
-//		System.out.println("===========================================");
-//		System.out.println("Modifier conseiller");
-//		Conseiller c5 = new Conseiller("Louis", "Jean",2);
-//		gerantDao.modifyConseiller(c5);
-//		
+		System.out.println("===========================================");
+		System.out.println("Modifier conseiller");
+		Client c5 = new Client(2,"Louis", "Jean","La Fleche",72200,(long) 06789412.0);
+		conseillerDao.modifyClient(c5);
+		
 //		// Test de la methode supprimer conseiller (CHECK)
 //		System.out.println("===========================================");
 //		System.out.println("Supprimer conseiller");
-//		gerantDao.deleteConseiller(c1);
+//		conseillerDao.deleteClient(c1);
 //		
 //		// Test de la methode getConseillerById (CHECK)
 //		System.out.println("===========================================");
 //		System.out.println("Conseiller n°4");
-//		Conseiller conseiller = gerantDao.getConseillerById(4);
-//		System.out.println(conseiller);
+//		Client client = conseillerDao.getClientById(2);
+//		System.out.println(client);
 //		
 //		// Test de la methode getConseillerById (CHECK)
 //		System.out.println("===========================================");
 //		System.out.println("Liste des conseillers");
-//		List<Conseiller> liste = gerantDao.getAllConseiller();
-//		for(Conseiller c : liste){
+//		List<Client> liste = conseillerDao.getAllClients();
+//		for(Client c : liste){
 //			System.out.println(c);
 //		}
 
