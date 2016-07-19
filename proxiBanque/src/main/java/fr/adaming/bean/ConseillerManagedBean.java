@@ -54,6 +54,20 @@ public class ConseillerManagedBean implements Serializable {
 	public void setConseillerService(IConseillerService conseillerService) {
 		this.conseillerService = conseillerService;
 	}
+	
+	/**
+	 * @return the gerantService
+	 */
+	public IGerantService getGerantService() {
+		return gerantService;
+	}
+
+	/**
+	 * @param gerantService the gerantService to set
+	 */
+	public void setGerantService(IGerantService gerantService) {
+		this.gerantService = gerantService;
+	}
 
 	/**
 	 * @return the conseiller

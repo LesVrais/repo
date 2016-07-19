@@ -12,8 +12,7 @@
 <h:body>
 	<center>
 		<img src="images/LogoProxiBanque.jpg" alt="logo proxi banque" /><br />
-		<h1>Bonjour Mr.#{gerantManagedBean.gerant.nom}, bienvenue sur le
-			reseau de la banque des vrais.</h1>
+		<h1>Bonjour Mr. #{conseillerManagedBean.conseiller.nom}, bienvenue sur le reseau de la banque des vrais.</h1>
 	</center>
 	<br />
 	<br />
@@ -105,12 +104,12 @@
 							value="#{conseillerManagedBean.client.ville}" required="true"
 							requiredMessage="Veuillez entrer une ville." />
 						<p:watermark for="ville1" value="Entrer une ville ..." />
-						<h:outputLabel for="conseiller1" value="Numero du conseiller :"
-							style="font-weight:bold" />
-						<p:inputText id="conseiller1"
-							value="#{conseillerManagedBean.client.ville}" required="true"
-							requiredMessage="Veuillez entrer numero conseiller." />
-						<p:watermark for="conseiller1" value="Entrer une ville ..." />
+<!-- 						<h:outputLabel for="conseiller1" value="Numero du conseiller :" -->
+<!-- 							style="font-weight:bold" /> -->
+<!-- 						<p:inputText id="conseiller1" -->
+<!-- 							value="#{conseillerManagedBean.client.conseiller}" required="true" -->
+<!-- 							requiredMessage="Veuillez entrer numero conseiller." /> -->
+<!-- 						<p:watermark for="conseiller1" value="Entrer un id conseiller ..." /> -->
 						<p:commandButton value="Ajouter client" update="@all"
 							icon="ui-icon-check"
 							action="#{conseillerManagedBean.ajouterClientMB()}">

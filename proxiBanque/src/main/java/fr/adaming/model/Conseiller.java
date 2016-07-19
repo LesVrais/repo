@@ -36,6 +36,14 @@ public class Conseiller extends Personne {
 	public Conseiller() {
 		super();
 	}
+	
+	/**
+	 * @param id_conseiller
+	 */
+	public Conseiller(int id_conseiller) {
+		super();
+		this.id_conseiller = id_conseiller;
+	}
 
 	/**
 	 *
