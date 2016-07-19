@@ -138,10 +138,10 @@ public class ConseillerDaoImpl implements IConseillerDao {
 
 	@Override
 	public List<Object> getAllCompteByClient(Client c) {
-		Session session = sessionFactory.getCurrentSession();
-		String reqHQL = "from CompteCourantEntity cc and CompteEpargneEntity ce where";
-		Query query = session.createQuery(reqHQL);
-		List<Compte> liste = query.list();
-		return liste;
+//		Session session = sessionFactory.getCurrentSession();
+//		String reqHQL = "from CompteCourantEntity cc and CompteEpargneEntity ce where";
+//		Query query = session.createQuery(reqHQL);
+//		List<Compte> liste = query.list();
+		return null;
 	}
 }

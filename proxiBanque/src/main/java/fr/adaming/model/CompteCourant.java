@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,7 +21,8 @@ public class CompteCourant extends Compte {
 	
 	@Column(name="decouvert")
 	private long decouvert=1000;
-	@OneToOne(mappedBy="compteCourant")
+	@OneToOne(mappedBy="compteCourant", fetch = FetchType.LAZY)
+	@JoinColumn(name="id_client",referencedColumnName="id_client")
 	private Client client;
 
 	/**

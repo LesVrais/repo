@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -20,7 +22,8 @@ public class CompteEpargne extends Compte {
 	
 	@Column(name="taux")
 	private double taux=0.03;
-	@OneToOne(mappedBy="compteEpargne")
+	@OneToOne(mappedBy="compteEpargne", fetch = FetchType.LAZY)
+	@JoinColumn(name="id_client",referencedColumnName="id_client")
 	private Client client;
 	
 	/**
