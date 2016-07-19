@@ -24,6 +24,7 @@ public class ClassTest {
 				new FileSystemXmlApplicationContext("src/main/webapp/WEB-INF/applicationContext.xml");
 		
 		IConseillerDao conseillerDao = (IConseillerDao) cxt.getBean("conseillerDao");
+		IGerantDao gerantDao = (IGerantDao) cxt.getBean("gerantDao");
 		
 		Client c1 = new Client("Lecouty", "Alexandre","adresse", 44000, "Nantes", (long) 0689457812.0);
 		Client c2 = new Client("Guillou", "Florian","adressssssse2", 75000,"Paris",(long) 0756897561.0);
@@ -96,6 +97,12 @@ public class ClassTest {
 //		long b = gerantDao.isExist(825, "CeluiQuiNExistePas");
 //		System.out.println("Retourne 1 normalement : " + a
 //				         + ", retourne 0 normalement : " + b);
+		
+		Conseiller c = new Conseiller();
+		c.setId_conseiller(3);
+		
+		System.out.println(gerantDao.getAllClientByConseiller(c));
+		
 	
 		}
 

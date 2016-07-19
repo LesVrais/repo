@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import fr.adaming.model.Client;
 import fr.adaming.model.Conseiller;
 
 @Repository("gerantDao")
@@ -74,6 +75,19 @@ public class GerantDaoImpl implements IGerantDao {
 		query.setParameter("nom", conseiller.getNom());
 		query.setParameter("prenom", conseiller.getPrenom());
 		query.executeUpdate();
+	}
+
+	@Override
+	public List<Client> getAllClientByConseiller(Conseiller c) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		String reqHQL = "from ClientEntity cl where cl.id_conseiller=:id";
+		Query query = session.createQuery(reqHQL);
+		query.setInteger("id", c.getId_conseiller());
+		query.executeUpdate();
+		
+		List<Client> listeCl = query.list();
+		return listeCl;
 	}
 
 //	@Override
