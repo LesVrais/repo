@@ -1,7 +1,6 @@
 package fr.adaming.bean;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
@@ -9,10 +8,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import fr.adaming.model.Client;
-import fr.adaming.model.Compte;
-import fr.adaming.model.CompteEpargne;
 import fr.adaming.model.Conseiller;
 import fr.adaming.service.IConseillerService;
+import fr.adaming.service.IGerantService;
 
 @ManagedBean(name="conseillerManagedBean")
 @SessionScoped
@@ -25,6 +23,9 @@ public class ConseillerManagedBean implements Serializable {
 
 	@ManagedProperty(value="#{conseillerServiceBean}")
 	IConseillerService conseillerService;
+	
+	@ManagedProperty(value="#{gerantServiceBean}")
+	IGerantService gerantService;
 
 	private Conseiller conseiller;
 	private Client client;
@@ -97,8 +98,10 @@ public class ConseillerManagedBean implements Serializable {
 	}
 	
 
-	//methodes (sans parametre dans le MB)
+	//methodes (sans parametre ni retour dans le MB)
 	public void ajouterClientMB() {
+		Conseiller con = gerantService.getConseillerByIdService(conseiller.getId_conseiller());
+		client.setConseiller(con);
 		conseillerService.addClientService(client);
 	}
 	
