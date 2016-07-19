@@ -54,29 +54,32 @@ public class ConseillerServiceImpl implements IConseillerService {
 	public void modifyClientService(Client c) {
 		conseillerDao.modifyClient(c);
 	}
-//	@Override
-//	public void addCompteCourant(Compte compte) {
-//		conseillerDao.addCompteCourant(compte);
-//	}
-//	@Override
-//	public void addCompteEpargne(Compte compte) {
-//		conseillerDao.addCompteEpargne(compte);
-//	}
-//	@Override
-//	public void deleteCompteCourant(Compte compte) {
-//		conseillerDao.deleteCompteCourant(compte);
-//	}
-//	@Override
-//	public void deleteCompteEpargne(Compte compte) {
-//		conseillerDao.deleteCompteEpargne(compte);
-//	}
-//	@Override
-//	public List<CompteCourant> getAllCompteCourant() {
-//		return conseillerDao.getAllCompteCourant();
-//	}
-//	@Override
-//	public List<CompteEpargne> getAllCompteEpargne() {
-//		return conseillerDao.getAllCompteEpargne();
-//	}
+	@Override
+	public void addCompteCourant(CompteCourant compteCo) {
+		conseillerDao.addCompteCourant(compteCo);
+		
+	}
+	@Override
+	public void addCompteEpargne(CompteEpargne compteEp) {
+		conseillerDao.addCompteEpargne(compteEp);
+		
+	}
+	@Override
+	public void deleteCompteCourant(CompteCourant compteCo) {
+		conseillerDao.deleteCompteCourant(compteCo);
+		
+	}
+	@Override
+	public void deleteCompteEpargne(CompteEpargne compteEp) {
+		conseillerDao.deleteCompteEpargne(compteEp);
+		
+	}
+	@Override
+	public List<Object> getAllCompteByClient(Client c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 }

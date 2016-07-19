@@ -15,11 +15,10 @@ public interface IConseillerService {
 	public void deleteClientService(Client c);
 	public void modifyClientService(Client c);
 	
-//	public void addCompteCourant(Compte compte);
-//	public void addCompteEpargne(Compte compte);
-//	public void deleteCompteCourant(Compte compte);
-//	public void deleteCompteEpargne(Compte compte);
-//	public List<CompteCourant> getAllCompteCourant();
-//	public List<CompteEpargne> getAllCompteEpargne();
+	public void addCompteCourant(CompteCourant compteCo);
+	public void addCompteEpargne(CompteEpargne compteEp);
+	public void deleteCompteCourant(CompteCourant compteCo);
+	public void deleteCompteEpargne(CompteEpargne compteEp);
+	public List<Object> getAllCompteByClient(Client c);
 
 }

@@ -107,18 +107,18 @@ public class ConseillerDaoImpl implements IConseillerDao {
 	}
 
 	@Override
-	public void addCompteEpargne(CompteEpargne compteEp) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(compteEp);
-	}
-
-	@Override
 	public void deleteCompteCourant(CompteCourant compteCo) {
 		Session session = sessionFactory.getCurrentSession();
 		String hqlReq = "delete from CompteCourantEntity cc where cc.id_compte=:id";
 		Query query = session.createQuery(hqlReq);
 		query.setString("id", compteCo.getId_compte());
 		query.executeUpdate();
+	}
+
+	@Override
+	public void addCompteEpargne(CompteEpargne compteEp) {
+		Session session = sessionFactory.getCurrentSession();
+		session.save(compteEp);
 	}
 
 	@Override
