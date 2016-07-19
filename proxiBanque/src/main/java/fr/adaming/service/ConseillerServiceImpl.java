@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import fr.adaming.dao.IConseillerDao;
 import fr.adaming.model.Client;
-import fr.adaming.model.Compte;
 import fr.adaming.model.CompteCourant;
 import fr.adaming.model.CompteEpargne;
 
@@ -79,7 +78,5 @@ public class ConseillerServiceImpl implements IConseillerService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 
 }
