@@ -15,13 +15,10 @@ public interface IConseillerDao {
 	public void deleteClient(Client cl);
 	public void modifyClient(Client cl);
 	
-	public void addCompteCourant(Compte compte);
-	public void addCompteEpargne(Compte compte);
-	public void deleteCompteCourant(Compte compte);
-	public void deleteCompteEpargne(Compte compte);
-	public List<CompteCourant> getAllCompteCourant();
-	public List<CompteEpargne> getAllCompteEpargne();
-	
-	public void virement(Compte compte1, Compte compte2, double somme);
+	public void addCompteCourant(CompteCourant compteCo);
+	public void addCompteEpargne(CompteEpargne compteEp);
+	public void deleteCompteCourant(CompteCourant compteCo);
+	public void deleteCompteEpargne(CompteEpargne compteEp);
+	public List<Object> getAllCompteByClient(Client c);
 
 }

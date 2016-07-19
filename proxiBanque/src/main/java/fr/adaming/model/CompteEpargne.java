@@ -19,7 +19,7 @@ public class CompteEpargne extends Compte {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name="taux")
-	private double taux=3;
+	private double taux=0.03;
 	@OneToOne(mappedBy="compteEpargne")
 	private Client client;
 	

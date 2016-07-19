@@ -35,6 +35,7 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		this.sessionFactory = sessionFactory;
 	}
 
+	//Methodes clients
 	@Override
 	public List<Client> getAllClients() {
 		Session session = sessionFactory.getCurrentSession();
@@ -91,8 +92,8 @@ public class ConseillerDaoImpl implements IConseillerDao {
 		query.executeUpdate();
 	}
 	
-	// Genere un numero de compte alaetoire
-	
+	// Genere un numero de compte aleatoire
+	//Methode de compte
 	public static String genererNumeroCompte() {
         String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"; 
         StringBuffer pass = new StringBuffer();
@@ -103,60 +104,44 @@ public class ConseillerDaoImpl implements IConseillerDao {
         return pass.toString();
 	}
 	
+	//Methodes de compte
+
 	@Override
-	public List<CompteCourant> getAllCompteCourant() {
+	public void addCompteCourant(CompteCourant compteCo) {
 		Session session = sessionFactory.getCurrentSession();
-		String reqHQL = "from CompteCourantEntity cc order by cc.id_compte asc";
-		Query query = session.createQuery(reqHQL);
-		List<CompteCourant> liste = query.list();
-		return liste;
+		session.save(compteCo);
 	}
 
 	@Override
-	public List<CompteEpargne> getAllCompteEpargne() {
+	public void addCompteEpargne(CompteEpargne compteEp) {
 		Session session = sessionFactory.getCurrentSession();
-		String reqHQL = "from CompteEpargneEntity ce order by ce.id_compte asc";
-		Query query = session.createQuery(reqHQL);
-		List<CompteEpargne> liste = query.list();
-		return liste;
+		session.save(compteEp);
 	}
 
 	@Override
-	public void addCompteCourant(Compte compte) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(compte);
-	}
-
-	@Override
-	public void addCompteEpargne(Compte compte) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(compte);
-	}
-
-	@Override
-	public void deleteCompteCourant(Compte compte) {
+	public void deleteCompteCourant(CompteCourant compteCo) {
 		Session session = sessionFactory.getCurrentSession();
 		String hqlReq = "delete from CompteCourantEntity cc where cc.id_compte=:id";
 		Query query = session.createQuery(hqlReq);
-		query.setString("id", compte.getId_compte());
+		query.setString("id", compteCo.getId_compte());
 		query.executeUpdate();
 	}
 
 	@Override
-	public void deleteCompteEpargne(Compte compte) {
+	public void deleteCompteEpargne(CompteEpargne compteEp) {
 		Session session = sessionFactory.getCurrentSession();
 		String hqlReq = "delete from CompteEpargneEntity ce where ce.id_compte=:id";
 		Query query = session.createQuery(hqlReq);
-		query.setString("id", compte.getId_compte());
+		query.setString("id", compteEp.getId_compte());
 		query.executeUpdate();
 	}
 
 	@Override
-	public void virement(Compte compteDebit, Compte compteCredit, double somme) {
-		double soldeCredit = compteCredit.getSolde();
-		soldeCredit += somme;
-		double soldeDebit = compteDebit.getSolde();
-		soldeDebit -= somme;
+	public List<Object> getAllCompteByClient(Client c) {
+		Session session = sessionFactory.getCurrentSession();
+		String reqHQL = "from CompteCourantEntity cc and CompteEpargneEntity ce where";
+		Query query = session.createQuery(reqHQL);
+		List<Compte> liste = query.list();
+		return liste;
 	}
-
 }
