@@ -189,19 +189,12 @@
 			<p:tab title="Compte courant">
 				<h:form>
 					<h:panelGrid columns="2" cellpadding="5">
-						<h:outputLabel for="id4" value="Numero du compte"
-							style="font-weight:bold" />
-						<p:inputText id="id4"
-							value="#{conseillerManagedBean.compteCo.id_compte}"
-							required="true" />
-						<h:outputLabel for="date4" value="Date creation"
-							style="font-weight:bold" />
-						<p:inputText id="date4"
-							value="#{conseillerManagedBean.compteCo.date_creation}"
-							required="true" />
 						<h:outputLabel for="solde4" value="Solde" style="font-weight:bold" />
 						<p:inputText id="solde4"
 							value="#{conseillerManagedBean.compteCo.solde}" required="true" />
+						<h:outputLabel for="id4" value="Id client" style="font-weight:bold" />
+						<p:inputText id="id4"
+							value="#{conseillerManagedBean.compteCo.client}" required="true" />
 						<p:commandButton value="Créer un compte courant" update="@all"
 							icon="ui-icon-check"
 							action="#{conseillerManagedBean.ajouterCompteCourant()}">
@@ -209,22 +202,15 @@
 					</h:panelGrid>
 				</h:form>
 			</p:tab>
-			<p:tab title="Compte e">
+			<p:tab title="Compte epargne">
 				<h:form>
 					<h:panelGrid columns="2" cellpadding="5">
-						<h:outputLabel for="id5" value="Numero du compte"
-							style="font-weight:bold" />
-						<p:inputText id="id5"
-							value="#{conseillerManagedBean.compteEp.id_compte}"
-							required="true" />
-						<h:outputLabel for="date5" value="Date creation"
-							style="font-weight:bold" />
-						<p:inputText id="date5"
-							value="#{conseillerManagedBean.compteEp.date_creation}"
-							required="true" />
 						<h:outputLabel for="solde5" value="Solde" style="font-weight:bold" />
 						<p:inputText id="solde5"
 							value="#{conseillerManagedBean.compteEp.solde}" required="true" />
+						<h:outputLabel for="id5" value="Id client" style="font-weight:bold" />
+						<p:inputText id="id5"
+							value="#{conseillerManagedBean.compteEp.client}" required="true" />
 						<p:commandButton value="Créer un compte courant" update="@all"
 							icon="ui-icon-check"
 							action="#{conseillerManagedBean.ajouterCompteEpargne()}">
