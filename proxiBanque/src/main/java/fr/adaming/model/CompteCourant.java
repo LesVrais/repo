@@ -6,6 +6,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -19,6 +22,10 @@ public class CompteCourant extends Compte {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_compteCourant")
+	private int id_compteCourant;
 	@Column(name="decouvert")
 	private long decouvert=1000;
 	@OneToOne(mappedBy="compteCourant", fetch = FetchType.LAZY)
@@ -35,23 +42,24 @@ public class CompteCourant extends Compte {
 	/**
 	 * @param decouvert
 	 */
-	public CompteCourant(String id_compte) {
-		super(id_compte);
+	public CompteCourant(int id_compteCourant) {
+		this.id_compteCourant = id_compteCourant;
 	}
 	
 	/**
 	 * @param decouvert
 	 */
-	public CompteCourant(String id_compte, double solde, Date date_creation) {
-		super(id_compte,solde,date_creation);
+	public CompteCourant(int id_compteCourant, double solde, Date date_creation) {
+		super(solde,date_creation);
 	}
 	
 	/**
 	 * @param decouvert
 	 */
-	public CompteCourant(String id_compte, double solde, Date date_creation, long decouvert) {
-		super(id_compte,solde,date_creation);
+	public CompteCourant(int id_compteCourant, double solde, Date date_creation, long decouvert) {
+		super(solde,date_creation);
 		this.decouvert = decouvert;
+		this.id_compteCourant = id_compteCourant;
 	}
 
 
@@ -60,10 +68,25 @@ public class CompteCourant extends Compte {
 	 * @param decouvert
 	 * @param client
 	 */
-	public CompteCourant(String id_compte, double solde, Date date_creation, long decouvert, Client client) {
-		super(id_compte,solde,date_creation);
+	public CompteCourant(int id_compteCourant, double solde, Date date_creation, long decouvert, Client client) {
+		super(solde,date_creation);
 		this.decouvert = decouvert;
 		this.client = client;
+		this.id_compteCourant = id_compteCourant;
+	}
+
+	/**
+	 * @return the id_compteCourant
+	 */
+	public int getId_compteCourant() {
+		return id_compteCourant;
+	}
+
+	/**
+	 * @param id_compteCourant the id_compteCourant to set
+	 */
+	public void setId_compteCourant(int id_compteCourant) {
+		this.id_compteCourant = id_compteCourant;
 	}
 
 	/**

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.adaming.model.Client;
-import fr.adaming.model.Compte;
 import fr.adaming.model.CompteCourant;
 import fr.adaming.model.CompteEpargne;
 
@@ -102,32 +101,32 @@ public class ConseillerDaoImpl implements IConseillerDao {
 
 	@Override
 	public void addCompteCourant(CompteCourant compteCo) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(compteCo);
+//		Session session = sessionFactory.getCurrentSession();
+//		session.save(compteCo);
 	}
 
 	@Override
 	public void deleteCompteCourant(CompteCourant compteCo) {
-		Session session = sessionFactory.getCurrentSession();
-		String hqlReq = "delete from CompteCourantEntity cc where cc.id_compte=:id";
-		Query query = session.createQuery(hqlReq);
-		query.setString("id", compteCo.getId_compte());
-		query.executeUpdate();
+//		Session session = sessionFactory.getCurrentSession();
+//		String hqlReq = "delete from CompteCourantEntity cc where cc.id_compte=:id";
+//		Query query = session.createQuery(hqlReq);
+//		query.setString("id", compteCo.getId_compte());
+//		query.executeUpdate();
 	}
 
 	@Override
 	public void addCompteEpargne(CompteEpargne compteEp) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(compteEp);
+//		Session session = sessionFactory.getCurrentSession();
+//		session.save(compteEp);
 	}
 
 	@Override
 	public void deleteCompteEpargne(CompteEpargne compteEp) {
-		Session session = sessionFactory.getCurrentSession();
-		String hqlReq = "delete from CompteEpargneEntity ce where ce.id_compte=:id";
-		Query query = session.createQuery(hqlReq);
-		query.setString("id", compteEp.getId_compte());
-		query.executeUpdate();
+//		Session session = sessionFactory.getCurrentSession();
+//		String hqlReq = "delete from CompteEpargneEntity ce where ce.id_compte=:id";
+//		Query query = session.createQuery(hqlReq);
+//		query.setString("id", compteEp.getId_compte());
+//		query.executeUpdate();
 	}
 
 	@Override

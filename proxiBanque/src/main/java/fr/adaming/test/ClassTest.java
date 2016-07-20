@@ -102,7 +102,7 @@ public class ClassTest {
 //		WsPret ws = new WsPret();
 //		
 //		System.out.println(ws.simulationImmo(10000, 3.5, 24));
-//	
+
 		}
 
 }

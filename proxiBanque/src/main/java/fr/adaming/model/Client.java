@@ -40,10 +40,10 @@ public class Client extends Personne {
 	private String carte;
 	
 	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compte")
+	@JoinColumn(name="id_compteCourant",referencedColumnName="id_compteCourant")
 	private CompteCourant compteCourant;
 	@OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compte")
+	@JoinColumn(name="id_compteEpargne",referencedColumnName="id_compteEpargne")
 	private CompteEpargne compteEpargne;
 	@ManyToOne
 	@JoinColumn(name="id_conseiller",referencedColumnName="id_conseiller")

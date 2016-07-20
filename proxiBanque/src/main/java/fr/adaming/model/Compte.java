@@ -10,16 +10,8 @@ import javax.persistence.Transient;
 
 @MappedSuperclass
 public abstract class Compte implements Serializable {
-	
-	/**
-	 * 
-	 */
-	@Transient
-	private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name="id_compte")
-	private String id_compte;
+
 	@Column(name="solde")
 	private double solde;
 	@Column(name="date_creation")
@@ -31,38 +23,17 @@ public abstract class Compte implements Serializable {
 	public Compte() {
 	}
 	
-	/**
-	 * @param id_compte
-	 * @param solde
-	 * @param date_creation
-	 */
-	public Compte(String id_compte) {
-		this.id_compte = id_compte;
-	}
 	
 	/**
 	 * @param id_compte
 	 * @param solde
 	 * @param date_creation
 	 */
-	public Compte(String id_compte, double solde, Date date_creation) {
-		this.id_compte = id_compte;
+	public Compte(double solde, Date date_creation) {
 		this.solde = solde;
 		this.date_creation = date_creation;
 	}
 	
-	/**
-	 * @return the id_compte
-	 */
-	public String getId_compte() {
-		return id_compte;
-	}
-	/**
-	 * @param id_compte the id_compte to set
-	 */
-	public void setId_compte(String id_compte) {
-		this.id_compte = id_compte;
-	}
 	/**
 	 * @return the solde
 	 */
@@ -92,7 +63,7 @@ public abstract class Compte implements Serializable {
 	 */
 	@Override
 	public String toString() {
-		return "Compte [id_compte=" + id_compte + ", solde=" + solde
+		return "Compte [id_compte=" +  ", solde=" + solde
 				+ ", date_creation=" + date_creation + "]";
 	}
 
